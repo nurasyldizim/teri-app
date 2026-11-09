@@ -29,7 +29,7 @@
 <!-- ================= RU ================= -->
 <section class="lang" id="ru" lang="ru">
 <h1>Политика конфиденциальности Teri</h1>
-<p class="muted">Действует с 29 октября 2026 года.</p>
+<p class="muted">Действует с 29 октября 2026 года. Обновлена 9 ноября 2026 года.</p>
 
 <p>Teri — мобильное приложение интернет-магазина корейской косметики Teri в Казахстане. Оно помогает подобрать уход за кожей и заказать средства из нашего магазина. Здесь написано, какие данные мы получаем, зачем, кому их передаём и как их удалить.</p>
 <p>Вопросы о данных: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -38,7 +38,14 @@
 <h3>Аккаунт</h3>
 <p>При первом запуске приложение создаёт анонимный аккаунт — без имени, телефона и e-mail, только чтобы сохранить ваш план ухода. По желанию вы можете войти через Apple или Google — тогда мы получаем ваше имя и e-mail (Apple может дать скрытый адрес), или подтвердить номер телефона одноразовым кодом (код приходит в WhatsApp, Telegram или по SMS).</p>
 <h3>Фото лица</h3>
-<p>Только с вашего согласия и только для анализа кожи. Фото передаётся по защищённому соединению сервису ИИ Anthropic (США) для одного анализа. Teri не сохраняет фото: после анализа остаются только результаты — тип кожи, чувствительность, оценки проблем кожи и короткое описание.</p>
+<p>Только с вашего согласия и только для анализа кожи, который вы запускаете сами.</p>
+<ul>
+  <li><b>Что мы получаем:</b> одно фото лица на каждый анализ — его делаете вы в приложении передней или задней камерой. Teri не использует Face ID, камеру TrueDepth и распознавание лиц и не создаёт геометрию лица, шаблоны лица или другие биометрические данные.</li>
+  <li><b>Зачем:</b> только чтобы оценить кожу — тип кожи, чувствительность, оценки проблем кожи и короткое описание. Фото не используется для установления личности, рекламы или обучения ИИ.</li>
+  <li><b>Кому передаётся:</b> по защищённому соединению (HTTPS) через наш сервер (Supabase, Франкфурт, Германия) сервису ИИ Anthropic, PBC (США), который выполняет анализ. Больше никому фото не передаётся и не продаётся.</li>
+  <li><b>Где и как долго хранится:</b> Teri не сохраняет фото — ни в телефоне, ни на сервере, ни в базе данных. Оно находится только в памяти приложения, пока вы заполняете анкету и идёт анализ, и стирается сразу после него; наш сервер держит его в памяти только на время запроса. Anthropic не использует фото для обучения моделей и автоматически удаляет его в течение 30 дней; дольше — только если этого требует закон или при нарушении правил использования сервиса Anthropic.</li>
+  <li><b>Что остаётся:</b> только результаты анализа, без фото. Они хранятся в вашем аккаунте, пока вы его не удалите (раздел 4). Согласие на анализ фото можно отозвать в любой момент (раздел 5).</li>
+</ul>
 <h3>Ответы анкеты</h3>
 <p>Как ведёт себя кожа, чувствительность, бюджет на уход, ингредиенты, на которые у вас реакция, беременность или кормление грудью. Они нужны, чтобы не советовать вам неподходящие средства. Отметку о беременности или кормлении можно снять в профиле в любой момент.</p>
 <h3>«Цикл и кожа»</h3>
@@ -65,7 +72,7 @@
 <p>Только сервисам, без которых приложение не работает:</p>
 <ul>
   <li><b>Supabase</b> — база данных и вход в аккаунт; серверы в Евросоюзе (Франкфурт, Германия);</li>
-  <li><b>Anthropic</b> (США) — анализ фото лица. По условиям Anthropic данные, полученные через его сервис, не используются для обучения моделей;</li>
+  <li><b>Anthropic</b> (США) — анализ фото лица. По условиям Anthropic данные, полученные через его сервис, не используются для обучения моделей и удаляются в течение 30 дней;</li>
   <li><b>Expo</b> (США), <b>Apple</b> и <b>Google</b> — доставка push-уведомлений;</li>
   <li><b>Apple</b> и <b>Google</b> — вход в аккаунт, если вы его выбрали;</li>
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> или SMS-оператор — доставка кода подтверждения номера;</li>
@@ -97,7 +104,7 @@
 <!-- ================= KK ================= -->
 <section class="lang" id="kk" lang="kk">
 <h1>Teri құпиялылық саясаты</h1>
-<p class="muted">2026 жылғы 29 қазаннан бастап күшінде.</p>
+<p class="muted">2026 жылғы 29 қазаннан бастап күшінде. 2026 жылғы 9 қарашада жаңартылды.</p>
 
 <p>Teri — Қазақстандағы Teri корей косметикасы интернет-дүкенінің мобильді қосымшасы. Ол теріге күтім таңдауға және дүкеніміздегі өнімдерге тапсырыс беруге көмектеседі. Мұнда біз қандай деректер алатынымыз, не үшін, кімге беретініміз және оларды қалай жоюға болатыны жазылған.</p>
 <p>Деректер туралы сұрақтар: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -106,7 +113,14 @@
 <h3>Аккаунт</h3>
 <p>Алғаш ашқанда қосымша жасырын аккаунт жасайды — атсыз, телефонсыз және e-mail-сыз, тек күтім жоспарыңызды сақтау үшін. Қаласаңыз, Apple немесе Google арқылы кіре аласыз — сонда біз атыңыз бен e-mail-ыңызды аламыз (Apple жасырын мекенжай беруі мүмкін), не телефон нөміріңізді бір реттік кодпен растай аласыз (код WhatsApp-қа, Telegram-ға немесе SMS-пен келеді).</p>
 <h3>Бет суреті</h3>
-<p>Тек сіздің келісіміңізбен және тек теріні талдау үшін. Сурет қорғалған байланыс арқылы Anthropic (АҚШ) жасанды интеллект қызметіне бір талдау үшін беріледі. Teri суретті сақтамайды: талдаудан кейін тек нәтижелер — тері түрі, сезімталдығы, тері мәселелерінің бағалары және қысқа сипаттама қалады.</p>
+<p>Тек сіздің келісіміңізбен және тек өзіңіз бастаған тері талдауы үшін.</p>
+<ul>
+  <li><b>Не аламыз:</b> әр талдауға бір бет суреті — оны қосымшада алдыңғы немесе артқы камерамен өзіңіз түсіресіз. Teri Face ID-ді, TrueDepth камерасын және бет тануды қолданбайды, бет геометриясын, бет үлгілерін немесе басқа биометриялық деректерді жасамайды.</li>
+  <li><b>Не үшін:</b> тек теріні бағалау үшін — тері түрі, сезімталдығы, тері мәселелерінің бағалары және қысқа сипаттама. Сурет адамның жеке басын анықтауға, жарнамаға немесе жасанды интеллектті оқытуға пайдаланылмайды.</li>
+  <li><b>Кімге беріледі:</b> сурет қорғалған байланыспен (HTTPS) біздің сервер (Supabase, Франкфурт, Германия) арқылы талдауды жасайтын Anthropic, PBC (АҚШ) жасанды интеллект қызметіне жіберіледі. Сурет басқа ешкімге берілмейді және сатылмайды.</li>
+  <li><b>Қайда және қанша уақыт сақталады:</b> Teri суретті сақтамайды — телефонда да, серверде де, дерекқорда да. Сурет сіз сауалнаманы толтырып, талдау жүріп жатқанда ғана қосымшаның жадында болады және талдаудан кейін бірден өшіріледі; біздің сервер оны тек сұрау кезінде жадта ұстайды. Anthropic суретті модельдерді оқытуға пайдаланбайды және 30 күн ішінде автоматты түрде жояды; одан ұзақ — тек заң талап етсе немесе Anthropic қызметін пайдалану ережелері бұзылса.</li>
+  <li><b>Не қалады:</b> тек талдау нәтижелері, суретсіз. Олар аккаунтыңызды жойғанша сақталады (4-бөлім). Сурет талдауына берген келісіміңізді кез келген уақытта қайтарып ала аласыз (5-бөлім).</li>
+</ul>
 <h3>Сауалнама жауаптары</h3>
 <p>Теріңіздің күйі, сезімталдығы, күтімге арналған бюджет, сізде реакция беретін ингредиенттер, жүктілік немесе бала емізу. Олар сізге жарамайтын өнімдерді ұсынбау үшін керек. Жүктілік не бала емізу белгісін профильде кез келген уақытта алып тастауға болады.</p>
 <h3>«Цикл және тері»</h3>
@@ -133,7 +147,7 @@
 <p>Тек қосымшаның жұмысына қажет қызметтерге:</p>
 <ul>
   <li><b>Supabase</b> — дерекқор және аккаунтқа кіру; серверлер Еуропалық Одақта (Франкфурт, Германия);</li>
-  <li><b>Anthropic</b> (АҚШ) — бет суретін талдау. Anthropic шарттары бойынша оның қызметі арқылы алынған деректер модельдерді оқытуға пайдаланылмайды;</li>
+  <li><b>Anthropic</b> (АҚШ) — бет суретін талдау. Anthropic шарттары бойынша оның қызметі арқылы алынған деректер модельдерді оқытуға пайдаланылмайды және 30 күн ішінде жойылады;</li>
   <li><b>Expo</b> (АҚШ), <b>Apple</b> және <b>Google</b> — push-хабарландыруларды жеткізу;</li>
   <li><b>Apple</b> және <b>Google</b> — егер сіз солар арқылы кірсеңіз;</li>
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> немесе SMS операторы — нөмірді растау кодын жеткізу;</li>
@@ -165,7 +179,7 @@
 <!-- ================= EN ================= -->
 <section class="lang" id="en" lang="en">
 <h1>Teri Privacy Policy</h1>
-<p class="muted">Effective 29 October 2026.</p>
+<p class="muted">Effective 29 October 2026. Updated 9 November 2026.</p>
 
 <p>Teri is the mobile app of Teri, an online shop of Korean cosmetics in Kazakhstan. It helps you choose a skincare routine and order products from our shop. This policy explains what data we receive, why, who we share it with and how to delete it.</p>
 <p>Questions about your data: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -174,7 +188,14 @@
 <h3>Account</h3>
 <p>On first launch the app creates an anonymous account, with no name, phone number or email, just to keep your routine. If you choose, you can sign in with Apple or Google (we then receive your name and email; Apple may give a private relay address), or confirm your phone number with a one-time code sent via WhatsApp, Telegram or SMS.</p>
 <h3>Face photo</h3>
-<p>Only with your consent and only for the skin analysis. The photo is sent over an encrypted connection to the AI service Anthropic (USA) for that one analysis. Teri does not store the photo: only the results remain — skin type, sensitivity, scores for skin concerns and a short summary.</p>
+<p>Only with your consent and only for a skin analysis that you start yourself.</p>
+<ul>
+  <li><b>What we receive:</b> one photo of your face for each analysis, taken by you in the app with the front or back camera. Teri does not use Face ID, the TrueDepth camera or face recognition, and does not create face geometry, face templates or any other biometric data.</li>
+  <li><b>Why:</b> only to assess your skin — skin type, sensitivity, scores for skin concerns and a short summary. The photo is not used to identify you, for advertising or to train AI.</li>
+  <li><b>Who receives it:</b> the photo is sent over an encrypted connection (HTTPS) through our server (Supabase, Frankfurt, Germany) to the AI service Anthropic, PBC (USA), which performs the analysis. It is not shared with anyone else and is never sold.</li>
+  <li><b>Where it is stored and for how long:</b> Teri does not store the photo — not on your phone, not on our server, not in our database. It stays only in the app’s memory while you answer the questionnaire and the analysis runs, and is erased right after it; our server holds it in memory only for the duration of the request. Anthropic does not use the photo to train its models and deletes it automatically within 30 days; longer only where the law requires it or if Anthropic’s usage policies are violated.</li>
+  <li><b>What remains:</b> only the results of the analysis, without the photo. They are kept in your account until you delete it (section 4). You can withdraw your consent to the photo analysis at any time (section 5).</li>
+</ul>
 <h3>Questionnaire answers</h3>
 <p>How your skin feels, sensitivity, budget, ingredients you react to, and pregnancy or breastfeeding, so that we never suggest unsuitable products. You can switch pregnancy or breastfeeding off in your profile at any time.</p>
 <h3>“Cycle and skin”</h3>
@@ -201,7 +222,7 @@
 <p>Only the services the app cannot work without:</p>
 <ul>
   <li><b>Supabase</b> — database and sign-in; servers in the European Union (Frankfurt, Germany);</li>
-  <li><b>Anthropic</b> (USA) — face photo analysis. Under Anthropic’s terms, data received through its service is not used to train models;</li>
+  <li><b>Anthropic</b> (USA) — face photo analysis. Under Anthropic’s terms, data received through its service is not used to train models and is deleted within 30 days;</li>
   <li><b>Expo</b> (USA), <b>Apple</b> and <b>Google</b> — delivering push notifications;</li>
   <li><b>Apple</b> and <b>Google</b> — sign-in, if you choose it;</li>
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> or an SMS provider — delivering the phone confirmation code;</li>
