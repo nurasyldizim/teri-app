@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teri — подарок от подруги</title>
+<meta name="description" content="Скидка на первый заказ в Teri — приложении магазина корейской косметики с подбором ухода по фото.">
+<meta property="og:title" content="Подарок в Teri: скидка на первый заказ">
+<meta property="og:description" content="Корейская косметика и бесплатный подбор ухода по фото. Откройте ссылку, чтобы получить код.">
+<meta property="og:image" content="https://nurasyldizim.github.io/teri-app/icon.png">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .hero { text-align: center; padding: 28px 0 8px; }
+  .hero img { width: 88px; height: 88px; border-radius: 20px; box-shadow: 0 4px 18px rgba(30, 53, 17, 0.2); }
+  .hero h1 { margin: 18px 0 6px; }
+  .hero p { color: var(--muted); margin: 0 auto; max-width: 440px; }
+  .code { max-width: 360px; margin: 22px auto 0; text-align: center; background: var(--soft); border-radius: 18px; padding: 18px; }
+  .code .label { color: var(--muted); font-size: 14px; }
+  .code .value { font-size: 32px; font-weight: 800; letter-spacing: 4px; color: var(--on-pistachio); margin: 4px 0 10px; }
+  @media (prefers-color-scheme: dark) { .code .value { color: var(--primary); } }
+  .code button { font: inherit; font-weight: 700; font-size: 15px; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+  .actions { display: grid; gap: 10px; max-width: 360px; margin: 22px auto 0; }
+  .btn { display: block; text-align: center; padding: 14px 18px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 16px; }
+  .btn.main { background: var(--pistachio); color: var(--on-pistachio); }
+  .btn.alt { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .steps { max-width: 420px; margin: 22px auto 0; color: var(--muted); font-size: 14px; padding-left: 20px; }
+  .switch { text-align: center; margin-top: 28px; }
+  .switch a { margin: 0 8px; font-weight: 600; font-size: 14px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <img src="../icon.png" alt="Teri">
+    <h1 data-t="title"></h1>
+    <p data-t="text"></p>
+  </div>
+  <div class="code" id="codeBox" hidden>
+    <div class="label" data-t="codeLabel"></div>
+    <div class="value" id="code"></div>
+    <button type="button" id="copy" data-t="copy"></button>
+  </div>
+  <div class="actions">
+    <a class="btn main" id="open" href="teri://" data-t="open"></a>
+    <a class="btn alt" id="appstore" href="https://apps.apple.com/kz/app/id6825749281" data-t="appstore"></a>
+    <a class="btn alt" id="play" href="https://play.google.com/store/apps/details?id=kz.teri.app" data-t="play" hidden></a>
+  </div>
+  <ol class="steps" id="steps" hidden>
+    <li data-t="step1"></li>
+    <li data-t="step2"></li>
+  </ol>
+  <div class="switch"><a href="#" data-lang="ru">Русский</a><a href="#" data-lang="kk">Қазақша</a></div>
+  <footer><a href="../">Teri</a> · <a href="../privacy.html">Конфиденциальность · Құпиялылық</a></footer>
+</div>
+<script>
+  // Teri 1.0.1 (12 Nov 2026): an invite from a friend, …/i/?c=AB3D9K.
+  // «Открыть в Teri» opens teri://invite/AB3D9K: the app keeps the code and fills it in at the
+  // checkout. Without Teri: the store, then this link again (or the code typed at the checkout).
+  // The discount itself is the shop's setting in Teri Admin; the app shows it.
+  var PLAY_LIVE = false; // Google Play: set to true when Teri is public there
+  var T = {
+    ru: {
+      title: 'Вам подарок от подруги',
+      titleNoCode: 'Teri — уход за кожей',
+      text: 'Скидка на первый заказ в Teri — магазине корейской косметики. Сделайте селфи, и Teri бесплатно подберёт уход на утро и вечер.',
+      textNoCode: 'Магазин корейской косметики с бесплатным подбором ухода по фото: селфи — и уход на утро и вечер готов.',
+      codeLabel: 'Код подруги',
+      copy: 'Скопировать код',
+      copied: 'Скопировано',
+      open: 'Открыть в Teri',
+      appstore: 'Скачать в App Store',
+      play: 'Скачать в Google Play',
+      step1: 'Нет Teri? Установите приложение и откройте эту ссылку ещё раз — код подставится сам.',
+      step2: 'Или введите код при оформлении заказа, в поле «Промокод или код подруги».'
+    },
+    kk: {
+      title: 'Құрбыңыздан сыйлық',
+      titleNoCode: 'Teri — теріге күтім',
+      text: 'Teri-дегі алғашқы тапсырысқа жеңілдік — корей косметикасы дүкені. Селфи жасаңыз, Teri таңертеңгі және кешкі күтімді тегін таңдайды.',
+      textNoCode: 'Фото бойынша тегін күтім таңдайтын корей косметикасы дүкені: селфи — және таңертеңгі мен кешкі күтім дайын.',
+      codeLabel: 'Құрбыңыздың коды',
+      copy: 'Кодты көшіру',
+      copied: 'Көшірілді',
+      open: 'Teri-де ашу',
+      appstore: 'App Store-дан жүктеу',
+      play: 'Google Play-ден жүктеу',
+      step1: 'Teri жоқ па? Қосымшаны орнатып, осы сілтемені қайта ашыңыз — код өзі қойылады.',
+      step2: 'Немесе тапсырыс рәсімдегенде кодты «Промокод немесе құрбыңыздың коды» жолына енгізіңіз.'
+    }
+  };
+  var raw = (new URLSearchParams(location.search).get('c') || '').trim().toUpperCase();
+  var code = /^[A-Z0-9-]{3,24}$/.test(raw) ? raw : '';
+  var lang = 'ru';
+  document.getElementById('open').href = code ? 'teri://invite/' + code : 'teri://';
+  document.getElementById('play').hidden = !PLAY_LIVE;
+  document.getElementById('codeBox').hidden = !code;
+  document.getElementById('steps').hidden = !code;
+  document.getElementById('code').textContent = code;
+  function show(l) {
+    lang = l;
+    var t = T[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      if (!code && (k === 'title' || k === 'text')) k = k + 'NoCode';
+      el.textContent = t[k];
+    });
+    try { localStorage.setItem('teri.lang', l); } catch (e) {}
+  }
+  document.getElementById('copy').addEventListener('click', function () {
+    var b = this;
+    var done = function () { b.textContent = T[lang].copied; setTimeout(function () { b.textContent = T[lang].copy; }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () {});
+    }
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('teri.lang'); } catch (e) {}
+  show(saved === 'kk' || saved === 'ru' ? saved : /^kk/i.test(navigator.language || '') ? 'kk' : 'ru');
+  document.querySelectorAll('[data-lang]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); show(a.getAttribute('data-lang')); });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teri — товар</title>
+<meta name="description" content="Товар в Teri — приложении магазина корейской косметики с подбором ухода по фото.">
+<meta property="og:title" content="Teri — уход за кожей">
+<meta property="og:description" content="Корейская косметика и подбор ухода по фото. Откройте товар в приложении Teri.">
+<meta property="og:image" content="https://nurasyldizim.github.io/teri-app/icon.png">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .hero { text-align: center; padding: 28px 0 8px; }
+  .hero img { width: 88px; height: 88px; border-radius: 20px; box-shadow: 0 4px 18px rgba(30, 53, 17, 0.2); }
+  .hero h1 { margin: 18px 0 6px; }
+  .hero p { color: var(--muted); margin: 0 auto; max-width: 440px; }
+  .actions { display: grid; gap: 10px; max-width: 360px; margin: 26px auto 0; }
+  .btn { display: block; text-align: center; padding: 14px 18px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 16px; }
+  .btn.main { background: var(--pistachio); color: var(--on-pistachio); }
+  .btn.alt { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .note { text-align: center; color: var(--muted); font-size: 14px; max-width: 420px; margin: 18px auto 0; }
+  .switch { text-align: center; margin-top: 28px; }
+  .switch a { margin: 0 8px; font-weight: 600; font-size: 14px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <img src="../icon.png" alt="Teri">
+    <h1 data-t="title"></h1>
+    <p data-t="text"></p>
+  </div>
+  <div class="actions">
+    <a class="btn main" id="open" href="teri://" data-t="open"></a>
+    <a class="btn alt" id="appstore" href="https://apps.apple.com/kz/app/id6825749281" data-t="appstore"></a>
+    <a class="btn alt" id="play" href="https://play.google.com/store/apps/details?id=kz.teri.app" data-t="play" hidden></a>
+  </div>
+  <p class="note" data-t="note"></p>
+  <div class="switch"><a href="#" data-lang="ru">Русский</a><a href="#" data-lang="kk">Қазақша</a></div>
+  <footer><a href="../">Teri</a> · <a href="../privacy.html">Конфиденциальность · Құпиялылық</a></footer>
+</div>
+<script>
+  // Teri 1.0.1 (12 Nov 2026): a product shared from the app, …/p/?id=12.
+  // «Открыть в Teri» opens teri://product/12 when Teri is installed; otherwise the store.
+  var PLAY_LIVE = false; // Google Play: set to true when Teri is public there
+  var T = {
+    ru: {
+      title: 'Товар в Teri',
+      text: 'Цена, состав, срок годности и наличие — в приложении Teri. Там же бесплатный подбор ухода по фото.',
+      open: 'Открыть в Teri',
+      appstore: 'Скачать в App Store',
+      play: 'Скачать в Google Play',
+      note: 'Если Teri ещё нет на телефоне, установите приложение и откройте эту ссылку ещё раз.',
+      bad: 'В ссылке нет товара. Откройте каталог в приложении Teri.'
+    },
+    kk: {
+      title: 'Teri-дегі өнім',
+      text: 'Бағасы, құрамы, жарамдылық мерзімі және бар-жоғы — Teri қосымшасында. Онда фото бойынша тегін күтім таңдау да бар.',
+      open: 'Teri-де ашу',
+      appstore: 'App Store-дан жүктеу',
+      play: 'Google Play-ден жүктеу',
+      note: 'Телефонда Teri әлі жоқ болса, қосымшаны орнатып, осы сілтемені қайта ашыңыз.',
+      bad: 'Сілтемеде өнім жоқ. Teri қосымшасындағы каталогты ашыңыз.'
+    }
+  };
+  var id = (new URLSearchParams(location.search).get('id') || '').trim();
+  var ok = /^\d{1,9}$/.test(id);
+  document.getElementById('open').href = ok ? 'teri://product/' + id : 'teri://';
+  document.getElementById('play').hidden = !PLAY_LIVE;
+  function show(lang) {
+    var t = T[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      el.textContent = k === 'text' && !ok ? t.bad : t[k];
+    });
+    try { localStorage.setItem('teri.lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('teri.lang'); } catch (e) {}
+  show(saved === 'kk' || saved === 'ru' ? saved : /^kk/i.test(navigator.language || '') ? 'kk' : 'ru');
+  document.querySelectorAll('[data-lang]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); show(a.getAttribute('data-lang')); });
+  });
+</script>
+</body>
+</html>
