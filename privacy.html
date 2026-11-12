@@ -29,7 +29,7 @@
 <!-- ================= RU ================= -->
 <section class="lang" id="ru" lang="ru">
 <h1>Политика конфиденциальности Teri</h1>
-<p class="muted">Действует с 29 октября 2026 года. Обновлена 9 ноября 2026 года.</p>
+<p class="muted">Действует с 29 октября 2026 года. Обновлена 12 ноября 2026 года.</p>
 
 <p>Teri — мобильное приложение интернет-магазина корейской косметики Teri в Казахстане. Оно помогает подобрать уход за кожей и заказать средства из нашего магазина. Здесь написано, какие данные мы получаем, зачем, кому их передаём и как их удалить.</p>
 <p>Вопросы о данных: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -43,7 +43,7 @@
   <li><b>Что мы получаем:</b> одно фото лица на каждый анализ — его делаете вы в приложении передней или задней камерой. Teri не использует Face ID, камеру TrueDepth и распознавание лиц и не создаёт геометрию лица, шаблоны лица или другие биометрические данные.</li>
   <li><b>Зачем:</b> только чтобы оценить кожу — тип кожи, чувствительность, оценки проблем кожи и короткое описание. Фото не используется для установления личности, рекламы или обучения ИИ.</li>
   <li><b>Кому передаётся:</b> по защищённому соединению (HTTPS) через наш сервер (Supabase, Франкфурт, Германия) сервису ИИ Anthropic, PBC (США), который выполняет анализ. Больше никому фото не передаётся и не продаётся.</li>
-  <li><b>Где и как долго хранится:</b> Teri не сохраняет фото — ни в телефоне, ни на сервере, ни в базе данных. Оно находится только в памяти приложения, пока вы заполняете анкету и идёт анализ, и стирается сразу после него; наш сервер держит его в памяти только на время запроса. Anthropic не использует фото для обучения моделей и автоматически удаляет его в течение 30 дней; дольше — только если этого требует закон или при нарушении правил использования сервиса Anthropic.</li>
+  <li><b>Где и как долго хранится:</b> Teri не сохраняет фото на сервере и в базе данных. Оно находится только в памяти приложения, пока вы заполняете анкету и идёт анализ, и стирается сразу после него; наш сервер держит его в памяти только на время запроса. Единственное исключение — функция «Фото до и после», которая выключена, пока вы сами её не включите (Профиль → Моя кожа): тогда снимок каждого анализа сохраняется в папке приложения только на этом телефоне, чтобы сравнивать кожу «было — стало». Эти снимки никуда не отправляются, магазин их не получает; их удаляет кнопка «Удалить фото с телефона», а также удаление приложения. Anthropic не использует фото для обучения моделей и автоматически удаляет его в течение 30 дней; дольше — только если этого требует закон или при нарушении правил использования сервиса Anthropic.</li>
   <li><b>Что остаётся:</b> только результаты анализа, без фото. Они хранятся в вашем аккаунте, пока вы его не удалите (раздел 4). Согласие на анализ фото можно отозвать в любой момент (раздел 5).</li>
 </ul>
 <h3>Ответы анкеты</h3>
@@ -54,8 +54,12 @@
 <p>Средства на вашей полке, отметки о выполненных шагах, напоминания, достижения, бонусы и промокоды.</p>
 <h3>Заказы</h3>
 <p>Имя, телефон, город и адрес доставки, комментарий курьеру, товары и суммы, способ оплаты; номер Kaspi, если вы оплачиваете счётом Kaspi; чек об оплате (фото или PDF), если вы его прикрепляете.</p>
+<h3>Отзывы о товарах</h3>
+<p>Если вы получили товар, можете поставить ему оценку от 1 до 5 и, по желанию, написать текст. Отзыв появляется в приложении только после проверки магазином — без имени и телефона, с типом кожи из вашего последнего анализа и датой. Другие пользователи могут пожаловаться на отзыв; после трёх жалоб он скрывается до повторной проверки. Магазин может отклонить отзыв или перестать принимать отзывы автора. Отзывы удаляются вместе с аккаунтом.</p>
+<h3>Сообщения об ошибках</h3>
+<p>Если экран приложения не открылся из-за ошибки, приложение отправляет нам текст ошибки, название экрана, версию приложения и системы телефона вместе с идентификатором аккаунта, чтобы мы нашли и исправили проблему. Фото, контакты и другое содержимое телефона не отправляются. Сообщения об ошибках удаляются через 60 дней.</p>
 <h3>Уведомления</h3>
-<p>Если вы разрешите, мы сохраняем токен push-уведомлений, чтобы присылать напоминания об уходе, советы по сезону и новости о заказах.</p>
+<p>Если вы разрешите, мы сохраняем токен push-уведомлений, чтобы присылать напоминания об уходе, советы по сезону, новости о заказах, «Снова в наличии» для товаров из «Избранного» и одно уведомление об открытии магазина, если вы нажали «Сообщить об открытии». Новинки и акции магазина приходят, только если вы сами включили их в профиле («Новинки и акции»).</p>
 <p>Мы не показываем рекламу, не используем рекламные идентификаторы и сторонние системы аналитики и не продаём ваши данные.</p>
 
 <h2>2. Зачем</h2>
@@ -78,12 +82,13 @@
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> или SMS-оператор — доставка кода подтверждения номера;</li>
   <li><b>Kaspi.kz</b> — счёт на оплату на ваш номер Kaspi, если вы выбрали эту оплату;</li>
   <li>служба доставки — имя, телефон и адрес, чтобы доставить заказ;</li>
+  <li>другие пользователи Teri — опубликованные отзывы, без имени и телефона;</li>
   <li>государственные органы — только если этого требует закон.</li>
 </ul>
 <p>В магазине ваши заказы видят его владельцы и сотрудники, чеки об оплате — только владельцы.</p>
 
 <h2>4. Хранение и удаление</h2>
-<p>Данные хранятся, пока у вас есть аккаунт. Удалить его можно в приложении: <b>Профиль → «Удалить аккаунт»</b>. Удаляются профиль, анализы кожи, план ухода, полка, напоминания, бонусы и токены уведомлений. Заказы остаются в учёте магазина (номер, товары, суммы) — без вашего имени, телефона и адреса; у оплаченного заказа, который ещё в пути, они удаляются после доставки. Если вы не можете открыть приложение, напишите нам — удалим вручную. Даты цикла удаляются вместе с приложением. Пошагово: <a href="delete-account.html#ru">удаление аккаунта</a>.</p>
+<p>Данные хранятся, пока у вас есть аккаунт. Удалить его можно в приложении: <b>Профиль → «Удалить аккаунт»</b>. Удаляются профиль, анализы кожи, план ухода, полка, напоминания, бонусы, отзывы и токены уведомлений. Заказы остаются в учёте магазина (номер, товары, суммы) — без вашего имени, телефона и адреса; у оплаченного заказа, который ещё в пути, они удаляются после доставки. Если вы не можете открыть приложение, напишите нам — удалим вручную. Даты цикла и «Фото до и после» хранятся только в телефоне и удаляются вместе с приложением. Пошагово: <a href="delete-account.html#ru">удаление аккаунта</a>.</p>
 
 <h2>5. Ваши права</h2>
 <p>Вы можете узнать, какие данные о вас у нас есть, исправить или удалить их и отозвать согласие на анализ фото — напишите на <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
@@ -104,7 +109,7 @@
 <!-- ================= KK ================= -->
 <section class="lang" id="kk" lang="kk">
 <h1>Teri құпиялылық саясаты</h1>
-<p class="muted">2026 жылғы 29 қазаннан бастап күшінде. 2026 жылғы 9 қарашада жаңартылды.</p>
+<p class="muted">2026 жылғы 29 қазаннан бастап күшінде. 2026 жылғы 12 қарашада жаңартылды.</p>
 
 <p>Teri — Қазақстандағы Teri корей косметикасы интернет-дүкенінің мобильді қосымшасы. Ол теріге күтім таңдауға және дүкеніміздегі өнімдерге тапсырыс беруге көмектеседі. Мұнда біз қандай деректер алатынымыз, не үшін, кімге беретініміз және оларды қалай жоюға болатыны жазылған.</p>
 <p>Деректер туралы сұрақтар: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -118,7 +123,7 @@
   <li><b>Не аламыз:</b> әр талдауға бір бет суреті — оны қосымшада алдыңғы немесе артқы камерамен өзіңіз түсіресіз. Teri Face ID-ді, TrueDepth камерасын және бет тануды қолданбайды, бет геометриясын, бет үлгілерін немесе басқа биометриялық деректерді жасамайды.</li>
   <li><b>Не үшін:</b> тек теріні бағалау үшін — тері түрі, сезімталдығы, тері мәселелерінің бағалары және қысқа сипаттама. Сурет адамның жеке басын анықтауға, жарнамаға немесе жасанды интеллектті оқытуға пайдаланылмайды.</li>
   <li><b>Кімге беріледі:</b> сурет қорғалған байланыспен (HTTPS) біздің сервер (Supabase, Франкфурт, Германия) арқылы талдауды жасайтын Anthropic, PBC (АҚШ) жасанды интеллект қызметіне жіберіледі. Сурет басқа ешкімге берілмейді және сатылмайды.</li>
-  <li><b>Қайда және қанша уақыт сақталады:</b> Teri суретті сақтамайды — телефонда да, серверде де, дерекқорда да. Сурет сіз сауалнаманы толтырып, талдау жүріп жатқанда ғана қосымшаның жадында болады және талдаудан кейін бірден өшіріледі; біздің сервер оны тек сұрау кезінде жадта ұстайды. Anthropic суретті модельдерді оқытуға пайдаланбайды және 30 күн ішінде автоматты түрде жояды; одан ұзақ — тек заң талап етсе немесе Anthropic қызметін пайдалану ережелері бұзылса.</li>
+  <li><b>Қайда және қанша уақыт сақталады:</b> Teri суретті серверде және дерекқорда сақтамайды. Сурет сіз сауалнаманы толтырып, талдау жүріп жатқанда ғана қосымшаның жадында болады және талдаудан кейін бірден өшіріледі; біздің сервер оны тек сұрау кезінде жадта ұстайды. Жалғыз ерекшелік — «Дейін және кейін фото» функциясы: оны өзіңіз қоспайынша ол өшірулі (Профиль → Терім). Қоссаңыз, әр талдаудың суреті терінің «бұрын — қазір» өзгерісін салыстыру үшін тек осы телефондағы қосымша қалтасында сақталады. Бұл суреттер ешқайда жіберілмейді, дүкен оларды алмайды; оларды «Фотоларды телефоннан өшіру» батырмасы және қосымшаны жою өшіреді. Anthropic суретті модельдерді оқытуға пайдаланбайды және 30 күн ішінде автоматты түрде жояды; одан ұзақ — тек заң талап етсе немесе Anthropic қызметін пайдалану ережелері бұзылса.</li>
   <li><b>Не қалады:</b> тек талдау нәтижелері, суретсіз. Олар аккаунтыңызды жойғанша сақталады (4-бөлім). Сурет талдауына берген келісіміңізді кез келген уақытта қайтарып ала аласыз (5-бөлім).</li>
 </ul>
 <h3>Сауалнама жауаптары</h3>
@@ -129,8 +134,12 @@
 <p>Сөредегі өнімдер, орындалған қадамдар белгілері, еске салғыштар, жетістіктер, бонустар мен промокодтар.</p>
 <h3>Тапсырыстар</h3>
 <p>Аты-жөні, телефон, қала мен жеткізу мекенжайы, курьерге пікір, тауарлар мен сомалар, төлем тәсілі; Kaspi шотымен төлесеңіз — Kaspi нөміріңіз; төлем чегі (сурет немесе PDF), егер оны тіркесеңіз.</p>
+<h3>Өнім туралы пікірлер</h3>
+<p>Өнімді алсаңыз, оған 1-ден 5-ке дейін баға қойып, қаласаңыз мәтін жаза аласыз. Пікір қосымшада тек дүкен тексергеннен кейін шығады — атыңыз бен телефоныңызсыз, соңғы талдауыңыздағы тері түрімен және күнімен. Басқа пайдаланушылар пікірге шағымдана алады; үш шағымнан кейін ол қайта тексерілгенше жасырылады. Дүкен пікірді қабылдамауы немесе автордың пікірлерін қабылдауды тоқтатуы мүмкін. Пікірлер аккаунтпен бірге жойылады.</p>
+<h3>Қате туралы хабарлар</h3>
+<p>Қосымша экраны қатеге байланысты ашылмаса, қосымша бізге қате мәтінін, экран атауын, қосымша мен телефон жүйесінің нұсқасын аккаунт идентификаторымен бірге жібереді — мәселені тауып, түзету үшін. Суреттер, контактілер және телефонның басқа мазмұны жіберілмейді. Қате туралы хабарлар 60 күннен кейін жойылады.</p>
 <h3>Хабарландырулар</h3>
-<p>Рұқсат етсеңіз, біз күтім туралы еске салғыштарды, маусымдық кеңестерді және тапсырыс жаңалықтарын жіберу үшін push-хабарландыру токенін сақтаймыз.</p>
+<p>Рұқсат етсеңіз, біз күтім туралы еске салғыштарды, маусымдық кеңестерді, тапсырыс жаңалықтарын, «Таңдаулыдағы» өнімдер үшін «Қайта сатылымда» хабарламасын және «Ашылғанда хабарлау» батырмасын бассаңыз — дүкен ашылғаны туралы бір хабарламаны жіберу үшін push-хабарландыру токенін сақтаймыз. Дүкеннің жаңалықтары мен акциялары тек оларды профильде өзіңіз қоссаңыз келеді («Жаңалықтар мен акциялар»).</p>
 <p>Біз жарнама көрсетпейміз, жарнамалық идентификаторлар мен бөгде аналитика жүйелерін қолданбаймыз және деректеріңізді сатпаймыз.</p>
 
 <h2>2. Не үшін</h2>
@@ -153,12 +162,13 @@
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> немесе SMS операторы — нөмірді растау кодын жеткізу;</li>
   <li><b>Kaspi.kz</b> — осы төлемді таңдасаңыз, Kaspi нөміріңізге төлем шоты;</li>
   <li>жеткізу қызметі — тапсырысты жеткізу үшін аты-жөні, телефон және мекенжай;</li>
+  <li>Teri-дің басқа пайдаланушылары — жарияланған пікірлер, атыңыз бен телефоныңызсыз;</li>
   <li>мемлекеттік органдар — тек заң талап етсе.</li>
 </ul>
 <p>Дүкенде тапсырыстарыңызды дүкен иелері мен қызметкерлері көреді, төлем чектерін — тек дүкен иелері.</p>
 
 <h2>4. Сақтау және жою</h2>
-<p>Деректер аккаунтыңыз бар кезде сақталады. Оны қосымшада жоюға болады: <b>Профиль → «Аккаунтты жою»</b>. Профиль, тері талдаулары, күтім жоспары, сөре, еске салғыштар, бонустар және хабарландыру токендері жойылады. Тапсырыстар дүкен есебінде қалады (нөмір, тауарлар, сомалар) — атыңыз, телефоныңыз бен мекенжайыңызсыз; жолдағы төленген тапсырыста олар жеткізілгеннен кейін жойылады. Қосымшаны аша алмасаңыз, бізге жазыңыз — қолмен жоямыз. Цикл күндері қосымшамен бірге жойылады. Қадамдап: <a href="delete-account.html#kk">аккаунтты жою</a>.</p>
+<p>Деректер аккаунтыңыз бар кезде сақталады. Оны қосымшада жоюға болады: <b>Профиль → «Аккаунтты жою»</b>. Профиль, тері талдаулары, күтім жоспары, сөре, еске салғыштар, бонустар, пікірлер және хабарландыру токендері жойылады. Тапсырыстар дүкен есебінде қалады (нөмір, тауарлар, сомалар) — атыңыз, телефоныңыз бен мекенжайыңызсыз; жолдағы төленген тапсырыста олар жеткізілгеннен кейін жойылады. Қосымшаны аша алмасаңыз, бізге жазыңыз — қолмен жоямыз. Цикл күндері мен «Дейін және кейін фото» тек телефонда сақталады және қосымшамен бірге жойылады. Қадамдап: <a href="delete-account.html#kk">аккаунтты жою</a>.</p>
 
 <h2>5. Құқықтарыңыз</h2>
 <p>Сіз туралы қандай деректер бар екенін біле аласыз, оларды түзете не жоя аласыз және сурет талдауына берген келісіміңізді қайтарып ала аласыз — <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a> мекенжайына жазыңыз.</p>
@@ -179,7 +189,7 @@
 <!-- ================= EN ================= -->
 <section class="lang" id="en" lang="en">
 <h1>Teri Privacy Policy</h1>
-<p class="muted">Effective 29 October 2026. Updated 9 November 2026.</p>
+<p class="muted">Effective 29 October 2026. Updated 12 November 2026.</p>
 
 <p>Teri is the mobile app of Teri, an online shop of Korean cosmetics in Kazakhstan. It helps you choose a skincare routine and order products from our shop. This policy explains what data we receive, why, who we share it with and how to delete it.</p>
 <p>Questions about your data: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -193,7 +203,7 @@
   <li><b>What we receive:</b> one photo of your face for each analysis, taken by you in the app with the front or back camera. Teri does not use Face ID, the TrueDepth camera or face recognition, and does not create face geometry, face templates or any other biometric data.</li>
   <li><b>Why:</b> only to assess your skin — skin type, sensitivity, scores for skin concerns and a short summary. The photo is not used to identify you, for advertising or to train AI.</li>
   <li><b>Who receives it:</b> the photo is sent over an encrypted connection (HTTPS) through our server (Supabase, Frankfurt, Germany) to the AI service Anthropic, PBC (USA), which performs the analysis. It is not shared with anyone else and is never sold.</li>
-  <li><b>Where it is stored and for how long:</b> Teri does not store the photo — not on your phone, not on our server, not in our database. It stays only in the app’s memory while you answer the questionnaire and the analysis runs, and is erased right after it; our server holds it in memory only for the duration of the request. Anthropic does not use the photo to train its models and deletes it automatically within 30 days; longer only where the law requires it or if Anthropic’s usage policies are violated.</li>
+  <li><b>Where it is stored and for how long:</b> Teri does not store the photo on our server or in our database. It stays only in the app’s memory while you answer the questionnaire and the analysis runs, and is erased right after it; our server holds it in memory only for the duration of the request. The only exception is “Before and after photos”, which is off unless you turn it on yourself (Profile → My skin): then the photo of each analysis is kept in the app’s own folder on this phone only, so you can compare your skin over time. These photos are never uploaded and the shop never receives them; “Delete photos from this phone” or deleting the app removes them. Anthropic does not use the photo to train its models and deletes it automatically within 30 days; longer only where the law requires it or if Anthropic’s usage policies are violated.</li>
   <li><b>What remains:</b> only the results of the analysis, without the photo. They are kept in your account until you delete it (section 4). You can withdraw your consent to the photo analysis at any time (section 5).</li>
 </ul>
 <h3>Questionnaire answers</h3>
@@ -204,8 +214,12 @@
 <p>Products on your shelf, completed steps, reminders, achievements, bonuses and promo codes.</p>
 <h3>Orders</h3>
 <p>Name, phone number, city and delivery address, a note for the courier, products and amounts, payment method; your Kaspi number if you pay by Kaspi invoice; the payment receipt (photo or PDF) if you attach one.</p>
+<h3>Product reviews</h3>
+<p>If you received a product, you can rate it from 1 to 5 and add a text if you like. A review appears in the app only after the shop checks it — without your name or phone number, with the skin type from your latest analysis and the date. Other users can report a review; after three reports it is hidden until it is checked again. The shop can reject a review or stop accepting an author’s reviews. Reviews are deleted together with your account.</p>
+<h3>Error reports</h3>
+<p>If a screen of the app fails to open because of an error, the app sends us the error text, the screen’s name and the app and phone system versions, together with your account ID, so that we can find and fix the problem. No photos, contacts or other phone content are sent. Error reports are deleted after 60 days.</p>
 <h3>Notifications</h3>
-<p>If you allow them, we store a push token to send skincare reminders, seasonal tips and order updates.</p>
+<p>If you allow them, we store a push token to send skincare reminders, seasonal tips, order updates, “Back in stock” for products in your Favourites, and one notification when the shop opens if you tapped “Notify me when it opens”. The shop’s news and offers come only if you turned on “News and offers” in your profile yourself.</p>
 <p>We show no ads, use no advertising identifiers or third-party analytics, and never sell your data.</p>
 
 <h2>2. Why</h2>
@@ -228,12 +242,13 @@
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> or an SMS provider — delivering the phone confirmation code;</li>
   <li><b>Kaspi.kz</b> — a payment invoice to your Kaspi number, if you choose that payment;</li>
   <li>the delivery service — name, phone number and address to deliver your order;</li>
+  <li>other Teri users — published reviews, without your name or phone number;</li>
   <li>public authorities — only where the law requires it.</li>
 </ul>
 <p>In the shop, your orders are seen by its owners and staff; payment receipts by the owners only.</p>
 
 <h2>4. Retention and deletion</h2>
-<p>Data is kept while you have an account. You can delete it in the app: <b>Profile → “Delete account”</b>. This deletes your profile, skin analyses, routine, shelf, reminders, bonuses and notification tokens. Orders stay in the shop’s accounts (number, products, amounts) without your name, phone number and address; for a paid order still on its way, these are removed after delivery. If you cannot open the app, write to us and we will delete it by hand. Cycle dates are removed together with the app. Step by step: <a href="delete-account.html#en">deleting your account</a>.</p>
+<p>Data is kept while you have an account. You can delete it in the app: <b>Profile → “Delete account”</b>. This deletes your profile, skin analyses, routine, shelf, reminders, bonuses, reviews and notification tokens. Orders stay in the shop’s accounts (number, products, amounts) without your name, phone number and address; for a paid order still on its way, these are removed after delivery. If you cannot open the app, write to us and we will delete it by hand. Cycle dates and “Before and after photos” are kept only on your phone and are removed together with the app. Step by step: <a href="delete-account.html#en">deleting your account</a>.</p>
 
 <h2>5. Your rights</h2>
 <p>You can ask what data we hold about you, correct or delete it, and withdraw your consent to the photo analysis: write to <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
