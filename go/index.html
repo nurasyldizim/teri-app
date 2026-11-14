@@ -111,7 +111,9 @@
 
   var q = new URLSearchParams(location.search);
   var rawTag = (q.get('c') || '').trim().toLowerCase();
-  var tag = /^[a-z0-9_-]{1,24}$/.test(rawTag) ? rawTag : 'link';
+  // the valid start of the tag is kept: a link pasted with a full stop after it ("?c=wa.") still counts as wa
+  var tagMatch = /^[a-z0-9_-]{1,24}/.exec(rawTag);
+  var tag = tagMatch ? tagMatch[0] : 'link';
   var IOS_URL = 'https://apps.apple.com/app/apple-store/id' + APPLE_ID + '?pt=' + APPLE_PT + '&ct=' + tag + '&mt=8';
   var PLAY_URL = 'https://play.google.com/store/apps/details?id=' + PLAY_ID +
     '&referrer=' + encodeURIComponent('utm_source=' + tag + '&utm_medium=link&utm_campaign=go');
