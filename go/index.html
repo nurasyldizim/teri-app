@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teri — теріңіздің түрін 2 минутта біліңіз</title>
+<meta name="description" content="Teri: тегін тері талдауы және теріңізге сай корей күтімі. Бесплатный анализ кожи и корейский уход под вашу кожу.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nurasyldizim.github.io/teri-app/go/">
+<meta property="og:title" content="Teri — теріңіздің түрін 2 минутта біліңіз">
+<meta property="og:description" content="Тегін тері талдауы және корей күтімі · Бесплатный анализ кожи и корейский уход">
+<meta property="og:image" content="https://nurasyldizim.github.io/teri-app/icon.png">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .hero { text-align: center; padding: 28px 0 4px; }
+  .hero img { width: 88px; height: 88px; border-radius: 20px; box-shadow: 0 4px 18px rgba(30, 53, 17, 0.2); }
+  .hero h1 { margin: 18px auto 6px; max-width: 420px; text-wrap: balance; }
+  .hero p { color: var(--muted); margin: 0 auto; max-width: 440px; }
+  .how { list-style: none; counter-reset: how; max-width: 360px; margin: 20px auto 0; padding: 14px 18px; background: var(--soft); border-radius: 18px; }
+  .how li { counter-increment: how; display: flex; align-items: baseline; gap: 10px; margin: 4px 0; }
+  .how li::before { content: counter(how); flex: none; width: 22px; font-weight: 800; color: var(--on-pistachio); font-variant-numeric: tabular-nums; }
+  @media (prefers-color-scheme: dark) { .how li::before { color: var(--primary); } }
+  .actions { display: grid; gap: 10px; max-width: 360px; margin: 20px auto 0; }
+  .btn { display: block; text-align: center; padding: 14px 18px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 16px; }
+  .btn.main { background: var(--pistachio); color: var(--on-pistachio); }
+  .btn.alt { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+  .btn.soon { background: transparent; color: var(--muted); border: 1px dashed var(--border); font-weight: 600; cursor: default; }
+  .opening { text-align: center; max-width: 440px; margin: 18px auto 0; font-weight: 600; text-wrap: balance; }
+  .note { text-align: center; max-width: 440px; margin: 10px auto 0; color: var(--muted); font-size: 14px; text-wrap: balance; }
+  .switch { text-align: center; margin-top: 28px; }
+  .switch a { margin: 0 8px; font-weight: 600; font-size: 14px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <img src="../icon.png" alt="Teri">
+    <h1 data-t="title">Теріңіздің түрін 2 минутта біліңіз</h1>
+    <p data-t="text">Teri теріңізді талдап, сізге сай корей күтім өнімдерін таңдайды. Талдау тегін.</p>
+  </div>
+  <ol class="how">
+    <li data-t="step1">Селфи түсіресіз</li>
+    <li data-t="step2">Бірнеше сұраққа жауап бересіз</li>
+    <li data-t="step3">Таңғы және кешкі күтіміңіз дайын</li>
+  </ol>
+  <div class="actions" id="actions">
+    <a class="btn soon" id="ios" aria-disabled="true">Жақында App Store-да</a>
+    <a class="btn soon" id="android" aria-disabled="true">Жақында Google Play-де</a>
+  </div>
+  <p class="opening" id="opening"></p>
+  <p class="note" data-t="photo">Біз фотоны сақтамаймыз: талдаудан кейін бізде тек нәтиже қалады.</p>
+  <p class="note" data-t="disclaimer">Медициналық диагноз емес, косметикалық кеңес.</p>
+  <div class="switch"><a href="#" data-lang="kk">Қазақша</a><a href="#" data-lang="ru">Русский</a></div>
+  <footer><a href="../">Teri</a> · <a href="../privacy.html">Құпиялылық · Конфиденциальность</a></footer>
+</div>
+<script>
+  // The link for profiles, posts and printed cards: …/go/?c=ig (the channel tag is optional).
+  // The tag goes into the store links, so installs show up per channel:
+  //   App Store Connect, Analytics: campaigns (pt = this developer account, ct = the tag);
+  //   Google Play Console: store listing acquisition by UTM source (utm_source = the tag).
+  // ?l=kk or ?l=ru opens the page in that language.
+  var IOS_LIVE = false;  // App Store: set to true on the day Teri is released there
+  var PLAY_LIVE = false; // Google Play: set to true when Teri is public there (also in ../i/index.html)
+  var OPENING = '2026-12-26T10:00:00+05:00'; // the shop's opening, Almaty time; keep in step with Teri Admin
+  var APPLE_ID = '6825749281';
+  var APPLE_PT = '129650158';
+  var PLAY_ID = 'kz.teri.app';
+
+  var MONTHS = {
+    kk: ['қаңтарда', 'ақпанда', 'наурызда', 'сәуірде', 'мамырда', 'маусымда', 'шілдеде', 'тамызда', 'қыркүйекте', 'қазанда', 'қарашада', 'желтоқсанда'],
+    ru: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+  };
+  var T = {
+    kk: {
+      pageTitle: 'Teri — теріңіздің түрін 2 минутта біліңіз',
+      title: 'Теріңіздің түрін 2 минутта біліңіз',
+      text: 'Teri теріңізді талдап, сізге сай корей күтім өнімдерін таңдайды. Талдау тегін.',
+      step1: 'Селфи түсіресіз',
+      step2: 'Бірнеше сұраққа жауап бересіз',
+      step3: 'Таңғы және кешкі күтіміңіз дайын',
+      ios: 'App Store-дан жүктеу',
+      iosSoon: 'Жақында App Store-да',
+      android: 'Google Play-ден жүктеу',
+      androidSoon: 'Жақында Google Play-де',
+      appSoon: 'Teri жақында шығады. Дүкен {date} ашылады.',
+      shopSoon: 'Дүкен {date} ашылады. Тері талдауы қазірдің өзінде тегін.',
+      shopOpen: 'Дүкен ашық. Қазақстан бойынша жеткіземіз.',
+      photo: 'Біз фотоны сақтамаймыз: талдаудан кейін бізде тек нәтиже қалады.',
+      disclaimer: 'Медициналық диагноз емес, косметикалық кеңес.'
+    },
+    ru: {
+      pageTitle: 'Teri — узнайте свой тип кожи за 2 минуты',
+      title: 'Узнайте свой тип кожи за 2 минуты',
+      text: 'Teri анализирует кожу и подбирает корейский уход, который подходит именно вам. Анализ бесплатный.',
+      step1: 'Делаете селфи',
+      step2: 'Отвечаете на несколько вопросов',
+      step3: 'Уход на утро и вечер готов',
+      ios: 'Скачать в App Store',
+      iosSoon: 'Скоро в App Store',
+      android: 'Скачать в Google Play',
+      androidSoon: 'Скоро в Google Play',
+      appSoon: 'Teri скоро выйдет. Магазин откроется {date}.',
+      shopSoon: 'Магазин откроется {date}. Анализ кожи бесплатный уже сейчас.',
+      shopOpen: 'Магазин открыт. Доставляем по Казахстану.',
+      photo: 'Мы не храним фото: после анализа у нас остаются только результаты.',
+      disclaimer: 'Косметическая рекомендация, не диагноз.'
+    }
+  };
+
+  var q = new URLSearchParams(location.search);
+  var rawTag = (q.get('c') || '').trim().toLowerCase();
+  var tag = /^[a-z0-9_-]{1,24}$/.test(rawTag) ? rawTag : 'link';
+  var IOS_URL = 'https://apps.apple.com/app/apple-store/id' + APPLE_ID + '?pt=' + APPLE_PT + '&ct=' + tag + '&mt=8';
+  var PLAY_URL = 'https://play.google.com/store/apps/details?id=' + PLAY_ID +
+    '&referrer=' + encodeURIComponent('utm_source=' + tag + '&utm_medium=link&utm_campaign=go');
+  var lang = 'kk';
+
+  function openingDate(l) {
+    var d = new Date(Date.parse(OPENING) + 5 * 3600 * 1000); // Almaty is UTC+5
+    return d.getUTCDate() + '\u00a0' + MONTHS[l][d.getUTCMonth()]; // the day and the month stay on one line
+  }
+  function setButton(el, live, url, label, soonLabel, main) {
+    el.textContent = live ? label : soonLabel;
+    el.className = 'btn ' + (live ? (main ? 'main' : 'alt') : 'soon');
+    if (live) { el.setAttribute('href', url); el.removeAttribute('aria-disabled'); }
+    else { el.removeAttribute('href'); el.setAttribute('aria-disabled', 'true'); }
+  }
+  function render() {
+    var t = T[lang];
+    document.documentElement.lang = lang;
+    document.title = t.pageTitle;
+    document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t[el.getAttribute('data-t')]; });
+    var ios = document.getElementById('ios');
+    var android = document.getElementById('android');
+    // an Android phone gets its own store first
+    var androidFirst = /Android/i.test(navigator.userAgent || '');
+    var box = document.getElementById('actions');
+    box.insertBefore(androidFirst ? android : ios, box.firstChild);
+    var iosMain = IOS_LIVE && (!androidFirst || !PLAY_LIVE);
+    setButton(ios, IOS_LIVE, IOS_URL, t.ios, t.iosSoon, iosMain);
+    setButton(android, PLAY_LIVE, PLAY_URL, t.android, t.androidSoon, PLAY_LIVE && !iosMain);
+    var line = !IOS_LIVE && !PLAY_LIVE ? t.appSoon : Date.now() < Date.parse(OPENING) ? t.shopSoon : t.shopOpen;
+    document.getElementById('opening').textContent = line.replace('{date}', openingDate(lang));
+  }
+  function show(l, remember) {
+    lang = l;
+    render();
+    if (remember) { try { localStorage.setItem('teri.lang', l); } catch (e) {} }
+  }
+
+  var asked = q.get('l');
+  var saved = null;
+  try { saved = localStorage.getItem('teri.lang'); } catch (e) {}
+  if (asked === 'kk' || asked === 'ru') show(asked, false);
+  else if (saved === 'kk' || saved === 'ru') show(saved, false);
+  else show(/^ru/i.test(navigator.language || '') ? 'ru' : 'kk', false);
+  document.querySelectorAll('[data-lang]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); show(a.getAttribute('data-lang'), true); });
+  });
+
+  // Until IOS_LIVE is switched on by hand, ask the App Store whether Teri is already there:
+  // the button turns on by itself on release day. A failed or blocked request changes nothing.
+  if (!IOS_LIVE) {
+    window.teriInStore = function (r) {
+      if (r && r.resultCount > 0) { IOS_LIVE = true; render(); }
+    };
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://itunes.apple.com/lookup?id=' + APPLE_ID + '&country=kz&callback=teriInStore';
+    document.head.appendChild(s);
+  }
+</script>
+</body>
+</html>
