@@ -97,6 +97,7 @@
   .code { margin: 16px 0 0; background: var(--soft); border-radius: 16px; padding: 14px; text-align: center; }
   .code .label { color: var(--muted); font-size: 13px; }
   .code .value { font: 800 26px/1.2 ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 2px; margin: 4px 0 10px; color: var(--ink); user-select: all; }
+  .code .lock { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
   .code button { font: inherit; font-weight: 700; font-size: 15px; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
   .done { margin: 16px 0 0; text-align: center; background: var(--soft); border-radius: 16px; padding: 16px; }
   .done b { display: block; font-size: 18px; color: var(--accent); }
@@ -158,6 +159,7 @@
       <div class="label" data-t="codeLabel"></div>
       <div class="value" id="code"></div>
       <button type="button" id="copy" data-t="copy"></button>
+      <p class="lock" id="lock" hidden></p>
     </div>
     <div class="done" id="doneBox" hidden>
       <b data-t="redeemed"></b>
@@ -223,6 +225,7 @@
       step2: 'Нажмите «Активировать в Teri» — или в приложении: Профиль → «Подарочные сертификаты» → введите код.',
       step3: 'Сделайте селфи: Teri подберёт уход под вашу кожу, а сертификат оплатит заказ.',
       note: 'Сертификат не сгорает, сумму можно тратить частями.',
+      lock: '🔒 Активировать можно только с номера, который заканчивается на {hint}.',
       redeemed: 'Подарок уже активирован ✓', redeemedText: 'Сумма на счёте в Teri — откройте приложение, чтобы выбрать уход.',
       cancelled: 'Этот сертификат больше не действует. Напишите тому, кто его подарил.',
       notFound: 'Открытка не найдена. Проверьте ссылку или попросите прислать её ещё раз.',
@@ -252,6 +255,7 @@
       step2: '«Teri-де іске қосу» батырмасын басыңыз — немесе қосымшада: Профиль → «Сыйлық сертификаттары» → кодты енгізіңіз.',
       step3: 'Селфи жасаңыз: Teri теріңізге сай күтімді таңдайды, ал сертификат тапсырысты төлейді.',
       note: 'Сертификат күймейді, соманы бөліп жұмсауға болады.',
+      lock: '🔒 Тек соңы {hint} болатын нөмірден іске қосуға болады.',
       redeemed: 'Сыйлық іске қосылған ✓', redeemedText: 'Сома Teri-дегі шотта — күтімді таңдау үшін қосымшаны ашыңыз.',
       cancelled: 'Бұл сертификат енді жарамсыз. Оны сыйлаған адамға жазыңыз.',
       notFound: 'Ашықхат табылмады. Сілтемені тексеріңіз немесе оны қайта жіберуді сұраңыз.',
@@ -299,6 +303,8 @@
     var unused = card.status === 'paid' && !!card.code;
     $('codeBox').hidden = !unused;
     $('code').textContent = card.code || '';
+    $('lock').hidden = !card.phone_hint;
+    if (card.phone_hint) $('lock').textContent = t.lock.replace('{hint}', card.phone_hint);
     $('doneBox').hidden = card.status !== 'redeemed';
     $('activate').textContent = unused ? t.activate : t.openApp;
     $('activate').href = unused && !ART[demo] ? 'teri://gift/' + token : 'teri://gift-cards';
@@ -352,7 +358,7 @@
     state = 'loading'; render();
     if (ART[demo]) {
       card = { status: 'paid', amount: 10000, design: demo, to_name: 'Бота', from_name: 'Айгерим', message: null,
-               lang: lang, code: 'XXXX-XXXX-XXXX' };
+               lang: lang, code: 'XXXX-XXXX-XXXX', phone_hint: '67' };
       token = 'demo';
       state = 'closed'; render(); return;
     }
