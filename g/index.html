@@ -353,6 +353,7 @@
 
   // ?demo=birthday|newyear|march8|thanks|any — how a card looks, with made-up names and no real code
   var demo = (new URLSearchParams(location.search).get('demo') || '').toLowerCase();
+  if (!Object.prototype.hasOwnProperty.call(ART, demo)) demo = '';   // only the five occasions, never 'constructor' and the like
 
   function load() {
     state = 'loading'; render();
