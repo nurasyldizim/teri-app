@@ -394,7 +394,12 @@
     a.addEventListener('click', function (e) { e.preventDefault(); setLang(a.getAttribute('data-lang')); });
   });
   var saved = store('teri.lang');
-  lang = saved === 'kk' || saved === 'ru' ? saved : /^kk/i.test(navigator.language || '') ? 'kk' : 'ru';
+  // a demo link may ask for a language (?l=kk / ?l=ru) so it can be shown either way; a real card
+  // keeps opening in the sender's language (see load()), so ?l= is honoured for demos only
+  var askLang = (new URLSearchParams(location.search).get('l') || '').toLowerCase();
+  lang = demo && (askLang === 'kk' || askLang === 'ru') ? askLang
+    : saved === 'kk' || saved === 'ru' ? saved
+    : /^kk/i.test(navigator.language || '') ? 'kk' : 'ru';
   load();
 </script>
 </body>
