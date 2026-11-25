@@ -29,7 +29,7 @@
 <!-- ================= RU ================= -->
 <section class="lang" id="ru" lang="ru">
 <h1>Политика конфиденциальности Teri</h1>
-<p class="muted">Действует с 29 октября 2026 года. Обновлена 12 ноября 2026 года.</p>
+<p class="muted">Действует с 29 октября 2026 года. Обновлена 25 ноября 2026 года.</p>
 
 <p>Teri — мобильное приложение интернет-магазина корейской косметики Teri в Казахстане. Оно помогает подобрать уход за кожей и заказать средства из нашего магазина. Здесь написано, какие данные мы получаем, зачем, кому их передаём и как их удалить.</p>
 <p>Вопросы о данных: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -60,7 +60,9 @@
 <p>Если экран приложения не открылся из-за ошибки, приложение отправляет нам текст ошибки, название экрана, версию приложения и системы телефона вместе с идентификатором аккаунта, чтобы мы нашли и исправили проблему. Фото, контакты и другое содержимое телефона не отправляются. Сообщения об ошибках удаляются через 60 дней.</p>
 <h3>Уведомления</h3>
 <p>Если вы разрешите, мы сохраняем токен push-уведомлений, чтобы присылать напоминания об уходе, советы по сезону, новости о заказах, «Снова в наличии» для товаров из «Избранного» и одно уведомление об открытии магазина, если вы нажали «Сообщить об открытии». Новинки и акции магазина приходят, только если вы сами включили их в профиле («Новинки и акции»).</p>
-<p>Мы не показываем рекламу, не используем рекламные идентификаторы и сторонние системы аналитики и не продаём ваши данные.</p>
+<h3>Статистика использования</h3>
+<p>С версии 1.0.5 приложение Teri отправляет обезличенную статистику: какие экраны открываются и что в них делают — анализ кожи начат, готов или не удался (без фото и ответов анкеты), товар просмотрен или добавлен в корзину, заказ оформлен (количество товаров, сумма, способ оплаты, использованы ли промокод, бонусы, подарок или сертификат), способ входа, подарочный сертификат куплен или активирован (номинал), уведомление об открытии магазина включено или выключено; а также установка, открытие и сворачивание приложения. К событиям добавляются производитель и модель телефона, версии системы и приложения, размер экрана, язык, часовой пояс и случайный номер установки, который создаёт приложение. Статистика не связана с вашим аккаунтом: в ней нет имени, телефона, e-mail, адреса, фото и ответов анкеты; IP-адрес и местоположение не сохраняются. Она нужна только для того, чтобы понимать, какие функции полезны, и улучшать приложение. Отключить её в приложении пока нельзя.</p>
+<p>Мы не показываем рекламу, не используем рекламные идентификаторы и не продаём ваши данные.</p>
 
 <h2>2. Зачем</h2>
 <ul>
@@ -68,15 +70,17 @@
   <li>сохранить ваш план ухода, полку и напоминания;</li>
   <li>принять, оплатить и доставить заказ и связаться с вами по заказу;</li>
   <li>присылать уведомления, которые вы разрешили;</li>
+  <li>понимать по обезличенной статистике, какими функциями пользуются, и улучшать приложение;</li>
   <li>защищать приложение от злоупотреблений — например, ограничивать число кодов подтверждения.</li>
 </ul>
 <p>Основание — ваше согласие (анализ фото, уведомления) и выполнение вашего заказа.</p>
 
 <h2>3. Кому передаются данные</h2>
-<p>Только сервисам, без которых приложение не работает:</p>
+<p>Только сервисам, которые обслуживают приложение:</p>
 <ul>
   <li><b>Supabase</b> — база данных и вход в аккаунт; серверы в Евросоюзе (Франкфурт, Германия);</li>
   <li><b>Anthropic</b> (США) — анализ фото лица. По условиям Anthropic данные, полученные через его сервис, не используются для обучения моделей и удаляются в течение 30 дней;</li>
+  <li><b>PostHog</b> — обезличенная статистика использования приложения Teri (с версии 1.0.5); серверы в Евросоюзе (Франкфурт, Германия), хранится около года;</li>
   <li><b>Expo</b> (США), <b>Apple</b> и <b>Google</b> — доставка push-уведомлений;</li>
   <li><b>Apple</b> и <b>Google</b> — вход в аккаунт, если вы его выбрали;</li>
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> или SMS-оператор — доставка кода подтверждения номера;</li>
@@ -88,7 +92,7 @@
 <p>В магазине ваши заказы видят его владельцы и сотрудники, чеки об оплате — только владельцы.</p>
 
 <h2>4. Хранение и удаление</h2>
-<p>Данные хранятся, пока у вас есть аккаунт. Удалить его можно в приложении: <b>Профиль → «Удалить аккаунт»</b>. Удаляются профиль, анализы кожи, план ухода, полка, напоминания, бонусы, отзывы и токены уведомлений. Заказы остаются в учёте магазина (номер, товары, суммы) — без вашего имени, телефона и адреса; у оплаченного заказа, который ещё в пути, они удаляются после доставки. Если вы не можете открыть приложение, напишите нам — удалим вручную. Даты цикла и «Фото до и после» хранятся только в телефоне и удаляются вместе с приложением. Пошагово: <a href="delete-account.html#ru">удаление аккаунта</a>.</p>
+<p>Данные хранятся, пока у вас есть аккаунт. Удалить его можно в приложении: <b>Профиль → «Удалить аккаунт»</b>. Удаляются профиль, анализы кожи, план ухода, полка, напоминания, бонусы, отзывы и токены уведомлений. Заказы остаются в учёте магазина (номер, товары, суммы) — без вашего имени, телефона и адреса; у оплаченного заказа, который ещё в пути, они удаляются после доставки. Если вы не можете открыть приложение, напишите нам — удалим вручную. Даты цикла и «Фото до и после» хранятся только в телефоне и удаляются вместе с приложением. Обезличенная статистика не связана с аккаунтом, поэтому удаляется не вместе с ним, а автоматически — примерно через год. Пошагово: <a href="delete-account.html#ru">удаление аккаунта</a>.</p>
 
 <h2>5. Ваши права</h2>
 <p>Вы можете узнать, какие данные о вас у нас есть, исправить или удалить их и отозвать согласие на анализ фото — напишите на <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
@@ -100,7 +104,7 @@
 <p>Teri предназначен для людей старше 18 лет. Анализ фото доступен только после подтверждения возраста.</p>
 
 <h2>8. Teri Admin — приложение для сотрудников</h2>
-<p>Teri Admin — отдельное приложение только для владельцев и сотрудников магазина: заказы, склад, касса и товары. Чтобы войти, сотрудник подтверждает свой номер телефона одноразовым кодом. Мы храним номер, имя, роль (продавец или владелец), токен push-уведомлений о новых заказах и записи о работе: продажи, смены, движение товаров на складе и фото товаров, которые загружает сотрудник. Фото товара может передаваться сервису Anthropic, чтобы заполнить карточку товара. Данные заказов покупателей (имя, телефон, адрес) Teri Admin показывает сотрудникам только для того, чтобы собрать и доставить заказ. Эти данные используются только для работы магазина. Чтобы удалить данные сотрудника, напишите на <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
+<p>Teri Admin — отдельное приложение только для владельцев и сотрудников магазина: заказы, склад, касса и товары. Чтобы войти, сотрудник подтверждает свой номер телефона одноразовым кодом. Мы храним номер, имя, роль (продавец или владелец), токен push-уведомлений о новых заказах и записи о работе: продажи, смены, движение товаров на складе и фото товаров, которые загружает сотрудник. Фото товара может передаваться сервису Anthropic, чтобы заполнить карточку товара. Данные заказов покупателей (имя, телефон, адрес) Teri Admin показывает сотрудникам только для того, чтобы собрать и доставить заказ. Эти данные используются только для работы магазина. Teri Admin статистику использования не отправляет. Чтобы удалить данные сотрудника, напишите на <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
 
 <h2>9. Изменения</h2>
 <p>Если политика изменится, мы обновим дату вверху, а о важных изменениях сообщим в приложении.</p>
@@ -109,7 +113,7 @@
 <!-- ================= KK ================= -->
 <section class="lang" id="kk" lang="kk">
 <h1>Teri құпиялылық саясаты</h1>
-<p class="muted">2026 жылғы 29 қазаннан бастап күшінде. 2026 жылғы 12 қарашада жаңартылды.</p>
+<p class="muted">2026 жылғы 29 қазаннан бастап күшінде. 2026 жылғы 25 қарашада жаңартылды.</p>
 
 <p>Teri — Қазақстандағы Teri корей косметикасы интернет-дүкенінің мобильді қосымшасы. Ол теріге күтім таңдауға және дүкеніміздегі өнімдерге тапсырыс беруге көмектеседі. Мұнда біз қандай деректер алатынымыз, не үшін, кімге беретініміз және оларды қалай жоюға болатыны жазылған.</p>
 <p>Деректер туралы сұрақтар: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -140,7 +144,9 @@
 <p>Қосымша экраны қатеге байланысты ашылмаса, қосымша бізге қате мәтінін, экран атауын, қосымша мен телефон жүйесінің нұсқасын аккаунт идентификаторымен бірге жібереді — мәселені тауып, түзету үшін. Суреттер, контактілер және телефонның басқа мазмұны жіберілмейді. Қате туралы хабарлар 60 күннен кейін жойылады.</p>
 <h3>Хабарландырулар</h3>
 <p>Рұқсат етсеңіз, біз күтім туралы еске салғыштарды, маусымдық кеңестерді, тапсырыс жаңалықтарын, «Таңдаулыдағы» өнімдер үшін «Қайта сатылымда» хабарламасын және «Ашылғанда хабарлау» батырмасын бассаңыз — дүкен ашылғаны туралы бір хабарламаны жіберу үшін push-хабарландыру токенін сақтаймыз. Дүкеннің жаңалықтары мен акциялары тек оларды профильде өзіңіз қоссаңыз келеді («Жаңалықтар мен акциялар»).</p>
-<p>Біз жарнама көрсетпейміз, жарнамалық идентификаторлар мен бөгде аналитика жүйелерін қолданбаймыз және деректеріңізді сатпаймыз.</p>
+<h3>Пайдалану статистикасы</h3>
+<p>1.0.5 нұсқасынан бастап Teri қосымшасы иесіздендірілген статистика жібереді: қай экрандар ашылады және онда не істеледі — тері талдауы басталды, дайын болды немесе сәтсіз аяқталды (суретсіз және сауалнама жауаптарынсыз), өнім қаралды немесе себетке қосылды, тапсырыс рәсімделді (өнім саны, сомасы, төлем тәсілі, промокод, бонус, сыйлық немесе сертификат қолданылды ма), кіру тәсілі, сыйлық сертификаты сатып алынды немесе белсендірілді (номиналы), дүкен ашылғаны туралы хабарлама қосылды немесе өшірілді; сондай-ақ қосымшаны орнату, ашу және фонға жіберу. Оқиғаларға телефонның өндірушісі мен моделі, жүйе мен қосымша нұсқалары, экран өлшемі, тіл, уақыт белдеуі және қосымша өзі жасайтын кездейсоқ орнату нөмірі қосылады. Статистика аккаунтыңызбен байланыстырылмайды: онда атыңыз, телефоныңыз, e-mail, мекенжайыңыз, суреттер және сауалнама жауаптары жоқ; IP-мекенжай мен орналасқан жер сақталмайды. Ол тек қай функциялар пайдалы екенін түсініп, қосымшаны жақсарту үшін керек. Әзірге оны қосымшада өшіру мүмкін емес.</p>
+<p>Біз жарнама көрсетпейміз, жарнамалық идентификаторларды қолданбаймыз және деректеріңізді сатпаймыз.</p>
 
 <h2>2. Не үшін</h2>
 <ul>
@@ -148,15 +154,17 @@
   <li>күтім жоспарыңызды, сөреңізді және еске салғыштарыңызды сақтау;</li>
   <li>тапсырысты қабылдау, төлеу, жеткізу және тапсырыс бойынша сізбен байланысу;</li>
   <li>сіз рұқсат еткен хабарландыруларды жіберу;</li>
+  <li>иесіздендірілген статистика бойынша қай функциялар қолданылатынын түсіну және қосымшаны жақсарту;</li>
   <li>қосымшаны теріс пайдаланудан қорғау — мысалы, растау кодтарының санын шектеу.</li>
 </ul>
 <p>Негізі — сіздің келісіміңіз (сурет талдауы, хабарландырулар) және тапсырысыңызды орындау.</p>
 
 <h2>3. Деректер кімге беріледі</h2>
-<p>Тек қосымшаның жұмысына қажет қызметтерге:</p>
+<p>Тек қосымшаға қызмет көрсететін сервистерге:</p>
 <ul>
   <li><b>Supabase</b> — дерекқор және аккаунтқа кіру; серверлер Еуропалық Одақта (Франкфурт, Германия);</li>
   <li><b>Anthropic</b> (АҚШ) — бет суретін талдау. Anthropic шарттары бойынша оның қызметі арқылы алынған деректер модельдерді оқытуға пайдаланылмайды және 30 күн ішінде жойылады;</li>
+  <li><b>PostHog</b> — Teri қосымшасының иесіздендірілген пайдалану статистикасы (1.0.5 нұсқасынан бастап); серверлер Еуропалық Одақта (Франкфурт, Германия), шамамен бір жыл сақталады;</li>
   <li><b>Expo</b> (АҚШ), <b>Apple</b> және <b>Google</b> — push-хабарландыруларды жеткізу;</li>
   <li><b>Apple</b> және <b>Google</b> — егер сіз солар арқылы кірсеңіз;</li>
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> немесе SMS операторы — нөмірді растау кодын жеткізу;</li>
@@ -168,7 +176,7 @@
 <p>Дүкенде тапсырыстарыңызды дүкен иелері мен қызметкерлері көреді, төлем чектерін — тек дүкен иелері.</p>
 
 <h2>4. Сақтау және жою</h2>
-<p>Деректер аккаунтыңыз бар кезде сақталады. Оны қосымшада жоюға болады: <b>Профиль → «Аккаунтты жою»</b>. Профиль, тері талдаулары, күтім жоспары, сөре, еске салғыштар, бонустар, пікірлер және хабарландыру токендері жойылады. Тапсырыстар дүкен есебінде қалады (нөмір, тауарлар, сомалар) — атыңыз, телефоныңыз бен мекенжайыңызсыз; жолдағы төленген тапсырыста олар жеткізілгеннен кейін жойылады. Қосымшаны аша алмасаңыз, бізге жазыңыз — қолмен жоямыз. Цикл күндері мен «Дейін және кейін фото» тек телефонда сақталады және қосымшамен бірге жойылады. Қадамдап: <a href="delete-account.html#kk">аккаунтты жою</a>.</p>
+<p>Деректер аккаунтыңыз бар кезде сақталады. Оны қосымшада жоюға болады: <b>Профиль → «Аккаунтты жою»</b>. Профиль, тері талдаулары, күтім жоспары, сөре, еске салғыштар, бонустар, пікірлер және хабарландыру токендері жойылады. Тапсырыстар дүкен есебінде қалады (нөмір, тауарлар, сомалар) — атыңыз, телефоныңыз бен мекенжайыңызсыз; жолдағы төленген тапсырыста олар жеткізілгеннен кейін жойылады. Қосымшаны аша алмасаңыз, бізге жазыңыз — қолмен жоямыз. Цикл күндері мен «Дейін және кейін фото» тек телефонда сақталады және қосымшамен бірге жойылады. Иесіздендірілген статистика аккаунтпен байланыстырылмаған, сондықтан ол аккаунтпен бірге емес, шамамен бір жылдан кейін автоматты түрде жойылады. Қадамдап: <a href="delete-account.html#kk">аккаунтты жою</a>.</p>
 
 <h2>5. Құқықтарыңыз</h2>
 <p>Сіз туралы қандай деректер бар екенін біле аласыз, оларды түзете не жоя аласыз және сурет талдауына берген келісіміңізді қайтарып ала аласыз — <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a> мекенжайына жазыңыз.</p>
@@ -180,7 +188,7 @@
 <p>Teri 18 жастан асқан адамдарға арналған. Сурет талдауы тек жасты растағаннан кейін қолжетімді.</p>
 
 <h2>8. Teri Admin — қызметкерлерге арналған қосымша</h2>
-<p>Teri Admin — тек дүкен иелері мен қызметкерлеріне арналған жеке қосымша: тапсырыстар, қойма, касса және тауарлар. Кіру үшін қызметкер өз телефон нөмірін бір реттік кодпен растайды. Біз нөмірді, атын, рөлін (сатушы немесе иесі), жаңа тапсырыстар туралы push-хабарландыру токенін және жұмыс жазбаларын сақтаймыз: сатулар, ауысымдар, қоймадағы тауар қозғалысы және қызметкер жүктеген тауар фотолары. Тауар карточкасын толтыру үшін тауар фотосы Anthropic сервисіне жіберілуі мүмкін. Сатып алушылардың тапсырыс деректерін (аты, телефоны, мекенжайы) Teri Admin қызметкерлерге тек тапсырысты жинап, жеткізу үшін көрсетеді. Бұл деректер тек дүкен жұмысы үшін қолданылады. Қызметкер деректерін жою үшін <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a> мекенжайына жазыңыз.</p>
+<p>Teri Admin — тек дүкен иелері мен қызметкерлеріне арналған жеке қосымша: тапсырыстар, қойма, касса және тауарлар. Кіру үшін қызметкер өз телефон нөмірін бір реттік кодпен растайды. Біз нөмірді, атын, рөлін (сатушы немесе иесі), жаңа тапсырыстар туралы push-хабарландыру токенін және жұмыс жазбаларын сақтаймыз: сатулар, ауысымдар, қоймадағы тауар қозғалысы және қызметкер жүктеген тауар фотолары. Тауар карточкасын толтыру үшін тауар фотосы Anthropic сервисіне жіберілуі мүмкін. Сатып алушылардың тапсырыс деректерін (аты, телефоны, мекенжайы) Teri Admin қызметкерлерге тек тапсырысты жинап, жеткізу үшін көрсетеді. Бұл деректер тек дүкен жұмысы үшін қолданылады. Teri Admin пайдалану статистикасын жібермейді. Қызметкер деректерін жою үшін <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a> мекенжайына жазыңыз.</p>
 
 <h2>9. Өзгерістер</h2>
 <p>Саясат өзгерсе, жоғарыдағы күнді жаңартамыз, ал маңызды өзгерістер туралы қосымшада хабарлаймыз.</p>
@@ -189,7 +197,7 @@
 <!-- ================= EN ================= -->
 <section class="lang" id="en" lang="en">
 <h1>Teri Privacy Policy</h1>
-<p class="muted">Effective 29 October 2026. Updated 12 November 2026.</p>
+<p class="muted">Effective 29 October 2026. Updated 25 November 2026.</p>
 
 <p>Teri is the mobile app of Teri, an online shop of Korean cosmetics in Kazakhstan. It helps you choose a skincare routine and order products from our shop. This policy explains what data we receive, why, who we share it with and how to delete it.</p>
 <p>Questions about your data: <a class="mail" href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a></p>
@@ -220,7 +228,9 @@
 <p>If a screen of the app fails to open because of an error, the app sends us the error text, the screen’s name and the app and phone system versions, together with your account ID, so that we can find and fix the problem. No photos, contacts or other phone content are sent. Error reports are deleted after 60 days.</p>
 <h3>Notifications</h3>
 <p>If you allow them, we store a push token to send skincare reminders, seasonal tips, order updates, “Back in stock” for products in your Favourites, and one notification when the shop opens if you tapped “Notify me when it opens”. The shop’s news and offers come only if you turned on “News and offers” in your profile yourself.</p>
-<p>We show no ads, use no advertising identifiers or third-party analytics, and never sell your data.</p>
+<h3>Usage statistics</h3>
+<p>From version 1.0.5 the Teri app sends anonymised usage statistics: which screens are opened and what is done there — a skin analysis started, finished or failed (without the photo or the questionnaire answers), a product viewed or added to the cart, an order placed (number of items, total, payment method, whether a promo code, bonuses, a gift or a certificate was used), the sign-in method, a gift certificate bought or activated (its amount), the shop-opening notification turned on or off; and the app being installed, opened and sent to the background. The events carry the phone’s maker and model, the system and app versions, the screen size, the language, the time zone and a random install number that the app creates. The statistics are not linked to your account: they contain no name, phone number, e-mail, address, photos or questionnaire answers, and neither your IP address nor your location is stored. We use them only to understand which features help and to improve the app. For now they cannot be switched off in the app.</p>
+<p>We show no ads, use no advertising identifiers, and never sell your data.</p>
 
 <h2>2. Why</h2>
 <ul>
@@ -228,15 +238,17 @@
   <li>to keep your routine, shelf and reminders;</li>
   <li>to take, get paid for and deliver your order, and contact you about it;</li>
   <li>to send the notifications you allowed;</li>
+  <li>to see from anonymised statistics which features are used, and to improve the app;</li>
   <li>to protect the app from abuse, for example by limiting confirmation codes.</li>
 </ul>
 <p>The legal basis is your consent (photo analysis, notifications) and fulfilling your order.</p>
 
 <h2>3. Who we share data with</h2>
-<p>Only the services the app cannot work without:</p>
+<p>Only the services that run the app for us:</p>
 <ul>
   <li><b>Supabase</b> — database and sign-in; servers in the European Union (Frankfurt, Germany);</li>
   <li><b>Anthropic</b> (USA) — face photo analysis. Under Anthropic’s terms, data received through its service is not used to train models and is deleted within 30 days;</li>
+  <li><b>PostHog</b> — anonymised usage statistics of the Teri app (from version 1.0.5); servers in the European Union (Frankfurt, Germany), kept for about a year;</li>
   <li><b>Expo</b> (USA), <b>Apple</b> and <b>Google</b> — delivering push notifications;</li>
   <li><b>Apple</b> and <b>Google</b> — sign-in, if you choose it;</li>
   <li><b>WhatsApp</b> (Meta), <b>Telegram</b> or an SMS provider — delivering the phone confirmation code;</li>
@@ -248,7 +260,7 @@
 <p>In the shop, your orders are seen by its owners and staff; payment receipts by the owners only.</p>
 
 <h2>4. Retention and deletion</h2>
-<p>Data is kept while you have an account. You can delete it in the app: <b>Profile → “Delete account”</b>. This deletes your profile, skin analyses, routine, shelf, reminders, bonuses, reviews and notification tokens. Orders stay in the shop’s accounts (number, products, amounts) without your name, phone number and address; for a paid order still on its way, these are removed after delivery. If you cannot open the app, write to us and we will delete it by hand. Cycle dates and “Before and after photos” are kept only on your phone and are removed together with the app. Step by step: <a href="delete-account.html#en">deleting your account</a>.</p>
+<p>Data is kept while you have an account. You can delete it in the app: <b>Profile → “Delete account”</b>. This deletes your profile, skin analyses, routine, shelf, reminders, bonuses, reviews and notification tokens. Orders stay in the shop’s accounts (number, products, amounts) without your name, phone number and address; for a paid order still on its way, these are removed after delivery. If you cannot open the app, write to us and we will delete it by hand. Cycle dates and “Before and after photos” are kept only on your phone and are removed together with the app. Anonymised statistics are not linked to your account, so they are not deleted with it; they are deleted automatically after about a year. Step by step: <a href="delete-account.html#en">deleting your account</a>.</p>
 
 <h2>5. Your rights</h2>
 <p>You can ask what data we hold about you, correct or delete it, and withdraw your consent to the photo analysis: write to <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
@@ -260,7 +272,7 @@
 <p>Teri is intended for people over 18. The photo analysis is available only after confirming your age.</p>
 
 <h2>8. Teri Admin — the staff app</h2>
-<p>Teri Admin is a separate app only for the shop’s owners and staff: orders, stock, the till and products. To sign in, a staff member confirms their phone number with a one-time code. We keep the number, name, role (seller or owner), a push token for new-order notifications and records of their work: sales, shifts, stock movements and the product photos they upload. A product photo may be sent to Anthropic to fill in the product card. Teri Admin shows staff customers’ order details (name, phone, address) only to pack and deliver the order. This data is used only to run the shop. To have a staff member’s data deleted, write to <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
+<p>Teri Admin is a separate app only for the shop’s owners and staff: orders, stock, the till and products. To sign in, a staff member confirms their phone number with a one-time code. We keep the number, name, role (seller or owner), a push token for new-order notifications and records of their work: sales, shifts, stock movements and the product photos they upload. A product photo may be sent to Anthropic to fill in the product card. Teri Admin shows staff customers’ order details (name, phone, address) only to pack and deliver the order. This data is used only to run the shop. Teri Admin sends no usage statistics. To have a staff member’s data deleted, write to <a href="mailto:dev.dizim.nurasyl@gmail.com">dev.dizim.nurasyl@gmail.com</a>.</p>
 
 <h2>9. Changes</h2>
 <p>If this policy changes, we will update the date above and tell you about important changes in the app.</p>
