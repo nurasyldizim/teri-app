@@ -244,11 +244,17 @@
   };
   draw();
   Promise.all([
-    get('shop_pages?select=slug,body_ru,body_kk,updated_at'),
+    // every column: md_ru/md_kk (the texts as written, since Step 62) where the database has them
+    get('shop_pages?select=*'),
     get('app_settings?select=' + SETTINGS + '&limit=1').catch(function () { return []; })
   ]).then(function (res) {
     pages = {};
-    (res[0] || []).forEach(function (p) { pages[p.slug] = p; });
+    (res[0] || []).forEach(function (p) {
+      // the written text (### headings, - lists, {{fields}}); before Step 62 body_* is all there is
+      if (p.md_ru != null) p.body_ru = p.md_ru;
+      if (p.md_kk != null) p.body_kk = p.md_kk;
+      pages[p.slug] = p;
+    });
     settings = (res[1] || [])[0] || null;
     draw();
   }).catch(function () { failed = true; draw(); });
