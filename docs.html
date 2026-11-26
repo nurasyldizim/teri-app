@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teri — документы магазина</title>
+<meta name="description" content="Документы магазина Teri: публичная оферта, доставка и оплата, возврат и обмен, товары с коротким сроком годности, политика конфиденциальности, согласие на обработку персональных данных, продавец и претензии, условия использования приложения.">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* The shop's documents (26 Nov 2026, Steps 62–63): the same texts as in the app, read from the
+     shop's database; the seller's details are filled in from its settings. */
+  .doc { margin-top: 28px; padding-top: 8px; border-top: 1px solid var(--border); scroll-margin-top: 12px; }
+  .doc h1 { font-size: 23px; }
+  .doc p { white-space: pre-line; }
+  .seller p { margin: 4px 0; }
+  .seller b { font-weight: 600; }
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+  nav.toc a { display: inline-block; padding: 6px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); text-decoration: none; font-size: 14px; }
+  nav.langs a[aria-current="true"] { outline: 2px solid var(--primary); }
+  .state { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <img src="icon.png" alt="Teri">
+  <div>
+    <div class="name">Teri</div>
+    <div class="tag">уход за кожей · теріге күтім · skincare</div>
+  </div>
+</header>
+
+<nav class="langs">
+  <a href="?lang=ru" data-lang="ru">Русский</a>
+  <a href="?lang=kk" data-lang="kk">Қазақша</a>
+  <a href="./">Поддержка · Қолдау · Support</a>
+</nav>
+
+<h1 id="title">Документы магазина</h1>
+<p class="muted" id="lead">Те же тексты, что в приложении Teri: Профиль → «О продавце и условия».</p>
+
+<div class="card seller" id="seller" hidden></div>
+<nav class="toc" id="toc" aria-label="Документы"></nav>
+<p class="state" id="state">Загружаем документы…</p>
+<div id="docs"></div>
+<noscript><p>Чтобы прочитать документы, включите JavaScript или откройте их в приложении Teri: Профиль → «О продавце и условия».</p></noscript>
+
+<footer>
+  © 2026 Teri · <a href="./">Поддержка · Қолдау · Support</a> · <a href="privacy.html">Политика конфиденциальности · Құпиялылық саясаты · Privacy Policy</a>
+</footer>
+</div>
+<script>
+(function () {
+  var SUPABASE_URL = 'https://czoqtfpljmfhczwvqyfh.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_ZJZq3Ja1BYEUalUcIYGS4g_tq31fFUC';
+  // the order and the titles of the app (src/lib/launch.ts, src/lib/i18n-legal.ts)
+  var SLUGS = ['offer', 'delivery', 'returns', 'short_expiry', 'privacy', 'pd_consent', 'claims', 'terms'];
+  var TEXT = {
+    ru: {
+      title: 'Документы магазина',
+      lead: 'Те же тексты, что в приложении Teri: Профиль → «О продавце и условия».',
+      loading: 'Загружаем документы…',
+      failed: 'Не удалось загрузить документы. Обновите страницу или откройте их в приложении Teri: Профиль → «О продавце и условия».',
+      none: 'Документы пока не опубликованы.',
+      updated: 'Обновлено',
+      seller: 'Продавец', bin: 'ИИН/БИН', reg: 'Регистрация', address: 'Адрес', email: 'E-mail',
+      sellerEmpty: 'Данные продавца появятся здесь, когда магазин их заполнит.',
+      toc: 'Документы',
+      pages: {
+        offer: 'Публичная оферта', delivery: 'Доставка и оплата', returns: 'Возврат и обмен',
+        short_expiry: 'Товары с коротким сроком годности', privacy: 'Политика конфиденциальности',
+        pd_consent: 'Согласие на обработку персональных данных', claims: 'Продавец и претензии',
+        terms: 'Условия использования приложения'
+      }
+    },
+    kk: {
+      title: 'Дүкен құжаттары',
+      lead: 'Teri қосымшасындағы мәтіндер: Профиль → «Сатушы және шарттар».',
+      loading: 'Құжаттарды жүктеп жатырмыз…',
+      failed: 'Құжаттарды жүктеу мүмкін болмады. Бетті жаңартыңыз немесе оларды Teri қосымшасында ашыңыз: Профиль → «Сатушы және шарттар».',
+      none: 'Құжаттар әлі жарияланбаған.',
+      updated: 'Жаңартылды',
+      seller: 'Сатушы', bin: 'ЖСН/БСН', reg: 'Тіркеу', address: 'Мекенжай', email: 'E-mail',
+      sellerEmpty: 'Дүкен толтырғанда сатушы туралы деректер осында шығады.',
+      toc: 'Құжаттар',
+      pages: {
+        offer: 'Жария оферта', delivery: 'Жеткізу және төлем', returns: 'Қайтару және айырбастау',
+        short_expiry: 'Жарамдылық мерзімі қысқа тауарлар', privacy: 'Құпиялылық саясаты',
+        pd_consent: 'Дербес деректерді өңдеуге келісім', claims: 'Сатушы және кінәрат-талаптар',
+        terms: 'Қосымшаны пайдалану шарттары'
+      }
+    }
+  };
+  var EMPTY = '—';
+  var money = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₸'; };
+  var pick = function (s, lang, ru, kk) { return (lang === 'kk' && s[kk] && String(s[kk]).trim()) || s[ru]; };
+  // the settings a document may name (src/lib/legal.ts)
+  var FIELDS = {
+    seller_name: function (s) { return s.seller_name; },
+    seller_bin: function (s) { return s.seller_bin; },
+    seller_reg: function (s, l) { return pick(s, l, 'seller_reg', 'seller_reg_kk'); },
+    seller_address: function (s, l) { return pick(s, l, 'seller_address', 'seller_address_kk'); },
+    shop_address: function (s, l) { return pick(s, l, 'shop_address', 'shop_address_kk'); },
+    shop_hours: function (s, l) { return pick(s, l, 'shop_hours', 'shop_hours_kk'); },
+    support_phone: function (s) { return s.support_phone; },
+    support_whatsapp: function (s) { return s.support_whatsapp; },
+    support_email: function (s) { return s.support_email; },
+    delivery_almaty_kzt: function (s) { return s.delivery_almaty_kzt != null ? money(s.delivery_almaty_kzt) : null; },
+    delivery_kz_kzt: function (s) { return s.delivery_kz_kzt != null ? money(s.delivery_kz_kzt) : null; },
+    free_delivery_from_kzt: function (s) { return s.free_delivery_from_kzt != null ? money(s.free_delivery_from_kzt) : null; },
+    delivery_days_almaty: function (s) { return s.delivery_days_almaty; },
+    delivery_days_kz: function (s) { return s.delivery_days_kz; },
+    order_hold_hours: function (s) { return s.order_hold_hours; },
+    short_min_days: function (s) { return s.short_min_days != null ? s.short_min_days : 30; }
+  };
+  var SETTINGS = 'seller_name,seller_bin,seller_reg,seller_reg_kk,seller_address,seller_address_kk,shop_address,shop_address_kk,' +
+    'shop_hours,shop_hours_kk,support_phone,support_whatsapp,support_email,delivery_almaty_kzt,delivery_kz_kzt,' +
+    'free_delivery_from_kzt,delivery_days_almaty,delivery_days_kz,order_hold_hours,short_min_days';
+
+  function fill(text, s, lang) {
+    return text.replace(/\{\{\s*([a-z_]+)\s*\}\}/g, function (m, key) {
+      var get = FIELDS[key];
+      if (!get) return m;
+      var v = s ? get(s, lang) : null;
+      var out = v == null ? '' : String(v).trim();
+      return out || EMPTY;
+    });
+  }
+  // «**жирный** текст» → spans; an odd number of ** marks leaves the last one as it is
+  function spans(el, line) {
+    var parts = line.split('**');
+    var closed = parts.length % 2 === 1;
+    parts.forEach(function (p, i) {
+      var bold = i % 2 === 1 && (closed || i < parts.length - 1);
+      var text = i % 2 === 1 && !bold ? '**' + p : p;
+      if (!text) return;
+      if (bold) { var b = document.createElement('b'); b.textContent = text; el.appendChild(b); }
+      else el.appendChild(document.createTextNode(text));
+    });
+  }
+  // «### » a heading, «- » a list item, an empty line between paragraphs (src/lib/legal.ts parseDoc)
+  function render(box, text) {
+    var lines = text.replace(/\r\n?/g, '\n').split('\n');
+    var para = [], list = null;
+    function flush() {
+      if (para.length) { var p = document.createElement('p'); spans(p, para.join('\n')); box.appendChild(p); }
+      para = [];
+    }
+    lines.forEach(function (raw) {
+      var line = raw.replace(/\s+$/, '');
+      if (!line.trim()) { flush(); list = null; return; }
+      var h = /^\s*#{1,4}\s+(.*)$/.exec(line);
+      if (h) { flush(); list = null; var h2 = document.createElement('h2'); h2.textContent = h[1].replace(/\*\*/g, '').trim(); box.appendChild(h2); return; }
+      var li = /^\s*[-•]\s+(.*)$/.exec(line);
+      if (li) {
+        flush();
+        if (!list) { list = document.createElement('ul'); box.appendChild(list); }
+        var item = document.createElement('li'); spans(item, li[1].trim()); list.appendChild(item);
+        return;
+      }
+      list = null;
+      para.push(line.trim());
+    });
+    flush();
+  }
+  function almatyDate(iso) {
+    try {
+      return new Intl.DateTimeFormat('ru-RU', { timeZone: 'Asia/Almaty', day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(iso));
+    } catch (e) { return iso.slice(0, 10).split('-').reverse().join('.'); }
+  }
+
+  var params = new URLSearchParams(location.search);
+  var lang = params.get('lang') === 'kk' || (!params.get('lang') && /^kk/i.test(navigator.language || '')) ? 'kk' : 'ru';
+  var pages = null, settings = null, failed = false;
+
+  function draw() {
+    var T = TEXT[lang];
+    document.documentElement.lang = lang;
+    document.title = 'Teri — ' + T.title.toLowerCase();
+    document.getElementById('title').textContent = T.title;
+    document.getElementById('lead').textContent = T.lead;
+    document.getElementById('toc').setAttribute('aria-label', T.toc);
+    Array.prototype.forEach.call(document.querySelectorAll('nav.langs a[data-lang]'), function (a) {
+      a.setAttribute('aria-current', a.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    var state = document.getElementById('state');
+    var docs = document.getElementById('docs');
+    var toc = document.getElementById('toc');
+    var seller = document.getElementById('seller');
+    docs.textContent = ''; toc.textContent = ''; seller.textContent = '';
+    if (failed) { state.textContent = T.failed; state.hidden = false; seller.hidden = true; return; }
+    if (!pages) { state.textContent = T.loading; state.hidden = false; seller.hidden = true; return; }
+
+    // the seller, as «О продавце и условия» in the app shows it
+    var s = settings || {};
+    var rows = [[T.bin, s.seller_bin], [T.reg, pick(s, lang, 'seller_reg', 'seller_reg_kk')],
+                [T.address, pick(s, lang, 'seller_address', 'seller_address_kk')], [T.email, s.support_email]];
+    var head = document.createElement('p'); var hb = document.createElement('b'); hb.textContent = T.seller + ': '; head.appendChild(hb);
+    head.appendChild(document.createTextNode(s.seller_name && String(s.seller_name).trim() ? s.seller_name : T.sellerEmpty));
+    seller.appendChild(head);
+    rows.forEach(function (r) {
+      if (!r[1] || !String(r[1]).trim()) return;
+      var p = document.createElement('p'); p.textContent = r[0] + ': ' + r[1]; seller.appendChild(p);
+    });
+    seller.hidden = false;
+
+    var shown = SLUGS.filter(function (slug) { return pages[slug] && (pages[slug].body_ru || pages[slug].body_kk); });
+    state.hidden = shown.length > 0;
+    if (!shown.length) state.textContent = T.none;
+    shown.forEach(function (slug) {
+      var page = pages[slug];
+      var a = document.createElement('a'); a.href = '#' + slug; a.textContent = T.pages[slug]; toc.appendChild(a);
+      var sec = document.createElement('section'); sec.className = 'doc'; sec.id = slug; sec.lang = lang;
+      var h1 = document.createElement('h1'); h1.textContent = T.pages[slug]; sec.appendChild(h1);
+      if (page.updated_at) { var m = document.createElement('p'); m.className = 'muted'; m.textContent = T.updated + ': ' + almatyDate(page.updated_at); sec.appendChild(m); }
+      // Kazakh when there is one, the Russian text otherwise (as the app does)
+      var body = (lang === 'kk' && page.body_kk && page.body_kk.trim()) ? page.body_kk : page.body_ru;
+      render(sec, fill(body || '', settings, lang));
+      docs.appendChild(sec);
+    });
+    if (location.hash) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) target.scrollIntoView();
+    }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('nav.langs a[data-lang]'), function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      lang = a.getAttribute('data-lang');
+      try { history.replaceState(null, '', '?lang=' + lang + location.hash); } catch (err) {}
+      draw();
+    });
+  });
+
+  var headers = { apikey: SUPABASE_KEY, Accept: 'application/json' };
+  var get = function (path) {
+    return fetch(SUPABASE_URL + '/rest/v1/' + path, { headers: headers }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  };
+  draw();
+  Promise.all([
+    get('shop_pages?select=slug,body_ru,body_kk,updated_at'),
+    get('app_settings?select=' + SETTINGS + '&limit=1').catch(function () { return []; })
+  ]).then(function (res) {
+    pages = {};
+    (res[0] || []).forEach(function (p) { pages[p.slug] = p; });
+    settings = (res[1] || [])[0] || null;
+    draw();
+  }).catch(function () { failed = true; draw(); });
+})();
+</script>
+</body>
+</html>
