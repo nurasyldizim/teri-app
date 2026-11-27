@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сізге алғыс ретінде сыйлық · Teri</title>
+<meta name="description" content="Ашықхатты ашыңыз: ішінде тілек пен корей күтіміне арналған сыйлық сертификаты бар.">
+<meta property="og:title" content="Сізге алғыс ретінде сыйлық · Teri">
+<meta property="og:description" content="Ашықхатты ашыңыз: ішінде тілек пен корей күтіміне арналған сыйлық сертификаты бар.">
+<meta property="og:image" content="https://nurasyldizim.github.io/teri-app/g/og/kk-thanks.jpg?v=083ad774">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Teri ашықхаты салынған конверт">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nurasyldizim.github.io/teri-app/g/og/kk-thanks.jpg?v=083ad774">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F2F8E8">
+<link rel="icon" href="/teri-app/icon.png">
+<link rel="apple-touch-icon" href="/teri-app/icon.png">
+<link rel="preload" href="/teri-app/fonts/cormorant-garamond-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/teri-app/fonts/cormorant-garamond-cyrillic-600-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/teri-app/fonts/caveat-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/teri-app/fonts/fonts.css">
+<link rel="stylesheet" href="/teri-app/g/gift.css?v=083ad774">
+</head>
+<body data-design="thanks" data-page-lang="kk">
+<!-- Made by _build/build-gift.mjs from _build/gift.html: change the template, then run the script. -->
+<div class="room" aria-hidden="true"></div>
+<canvas class="fx" id="ambient" aria-hidden="true"></canvas>
+<canvas class="fx" id="burst" aria-hidden="true" hidden></canvas>
+
+<main class="wrap">
+  <a class="brand" href="/teri-app/"><img src="/teri-app/icon.png" alt=""><span>Teri</span></a>
+
+  <section class="wait" id="loading">
+    <div>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="16" width="48" height="34" rx="5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M9 18l23 17 23-17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      <p data-t="loading"></p>
+    </div>
+  </section>
+
+  <div class="scene" id="scene" hidden>
+    <section class="closed" id="closed" hidden>
+      <div id="closedText">
+        <p class="over" data-t="over"></p>
+        <h1 class="title"><span id="titleA"></span> <em id="titleB"></em></h1>
+        <p class="from" id="from" hidden></p>
+      </div>
+      <div class="spacer s1"></div>
+      <div class="stage" id="stage">
+        <div class="env" id="env">
+          <div class="env-back"></div>
+          <div class="env-card" id="envCard" aria-hidden="true"></div>
+          <div class="pocket">
+            <div class="pocket-svg" id="pocket"></div>
+            <div class="flap-shadow" id="flapShadow"><i></i></div>
+          </div>
+          <div class="env-flap" id="flap"></div>
+          <div class="sheen"></div>
+          <button class="seal" id="seal" type="button"></button>
+        </div>
+      </div>
+      <p class="tap" id="tap"><span id="tapIcon"></span><span data-t="tap"></span></p>
+      <div class="spacer s2"></div>
+      <div id="closedFoot" class="foot">
+        <button class="btn main" id="openBtn" type="button" data-t="open"></button>
+      </div>
+    </section>
+
+    <section class="open" id="open" hidden>
+      <div class="card-wrap" id="cardWrap">
+        <article class="card" id="card">
+          <div class="gloss" id="gloss" aria-hidden="true"></div>
+          <div class="art" id="art" aria-hidden="true"></div>
+          <p class="to" id="to" hidden></p>
+          <h1 class="greet" id="greet"></h1>
+          <p class="wish" id="wish"></p>
+          <p class="sign" id="sign" hidden></p>
+          <div class="perf" id="perf"></div>
+          <div class="cert">
+            <p class="label" id="certLabel" data-t="certificate"></p>
+            <p class="amount" id="amount"></p>
+          </div>
+          <div class="code" id="code" hidden>
+            <p class="label" id="codeLabel" data-t="codeLabel"></p>
+            <button class="code-box" id="codeBox" type="button">
+              <span class="code-value" id="codeValue"></span>
+              <canvas id="dust" aria-hidden="true"></canvas>
+              <span class="code-hint" aria-hidden="true"><span><span id="revealIcon"></span><span id="revealText"></span></span></span>
+            </button>
+            <div class="code-tools" id="codeTools">
+              <button class="link" id="copy" type="button"></button>
+              <button class="link" id="toggleCode" type="button"></button>
+            </div>
+            <p class="lock" id="lock"><span id="lockIcon"></span><span id="lockText"></span></p>
+          </div>
+          <div class="done" id="done" hidden>
+            <b><span id="doneIcon"></span><span data-t="redeemed"></span></b>
+            <p data-t="redeemedText"></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="actions">
+        <p class="noapp" id="noApp" hidden><span id="noAppText"></span> <a class="link" id="noAppStore" href="#">App Store</a></p>
+        <a class="btn main" id="activate" href="teri://gift-cards"><img src="/teri-app/icon.png" alt="" width="24" height="24" style="border-radius:6px"><span></span></a>
+        <button class="btn glass" id="shareBtn" type="button"><span></span></button>
+        <p class="store" id="storeRow"><span data-t="noApp"></span><a class="link" id="appstore" href="#">App Store</a><a class="link" id="playLink" href="#" hidden>Google Play</a><span class="soon" id="playSoon" data-t="playSoon"></span></p>
+      </div>
+
+      <section class="how" id="how" hidden>
+        <h2 data-t="howTitle"></h2>
+        <ol>
+          <li id="step1"></li>
+          <li data-t="step2"></li>
+          <li id="step3"></li>
+          <li data-t="step4"></li>
+        </ol>
+        <p class="note" data-t="note"></p>
+      </section>
+      <div class="again"><button class="link" id="again" type="button"><span></span></button></div>
+    </section>
+  </div>
+
+  <section class="problem" id="problem" hidden>
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="16" width="48" height="34" rx="5" fill="none" stroke="currentColor" stroke-width="2.4" opacity=".55"/><path d="M9 18l23 17 23-17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" opacity=".55"/></svg>
+    <p id="problemText"></p>
+    <button class="btn" id="retry" type="button" data-t="retry" hidden></button>
+  </section>
+
+  <nav class="langs" aria-label="Язык · Тіл"><a class="link" href="#" data-lang="ru">Русский</a><a class="link" href="#" data-lang="kk">Қазақша</a></nav>
+  <footer><a href="/teri-app/">Teri</a> · <a href="/teri-app/privacy.html">Конфиденциальность · Құпиялылық</a></footer>
+</main>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet-bg" id="sheetBg"></div>
+  <div class="sheet-in">
+    <div class="grab" aria-hidden="true"></div>
+    <h2 id="sheetTitle" data-t="shareTitle"></h2>
+    <p class="sub"><span id="subIcon"></span><span data-t="shareSub"></span></p>
+    <img class="preview" id="preview" alt="">
+    <label class="toggle"><span data-t="shareWish"></span><input type="checkbox" id="withWish" checked></label>
+    <div class="btns">
+      <button class="btn main" id="shareNow" type="button" hidden><span data-t="shareNow"></span></button>
+      <a class="btn plain" id="save" href="#" download="teri-gift.png"><span data-t="save"></span></a>
+      <button class="btn plain" id="sheetClose" type="button" data-t="close"></button>
+    </div>
+    <p class="hint" id="holdHint" data-t="holdHint" hidden></p>
+  </div>
+</div>
+<script src="/teri-app/g/gift.js?v=083ad774"></script>
+</body>
+</html>

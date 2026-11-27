@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<!-- The link-preview picture of a gift card, 1200 × 630 (27 Nov 2026): _build/og.mjs opens this page
+     for every occasion and language and saves g/og/<lang>-<design>.jpg. ?d=<design>&l=<ru|kk|both> -->
+<link rel="stylesheet" href="/teri-app/fonts/fonts.css">
+<link rel="stylesheet" href="/teri-app/g/gift.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  .og { position: relative; width: 1200px; height: 630px; overflow: hidden; }
+  .room { position: absolute; }
+  #parts { position: absolute; inset: 0; width: 1200px; height: 630px; z-index: 1; }
+  .group { position: absolute; z-index: 2; left: 70px; top: 0; width: 560px; height: 630px; }
+  .ogcard { position: absolute; left: 132px; top: 22px; width: 300px; height: 400px; border-radius: 22px; background: var(--paper);
+    transform: rotate(6.5deg); padding: 30px 26px; text-align: center; color: var(--ink);
+    box-shadow: 0 30px 50px -22px rgba(var(--shadow), .45), 0 8px 18px -8px rgba(var(--shadow), .25); overflow: hidden; }
+  .ogcard::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 170px;
+    background: radial-gradient(60% 100% at 50% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 75%); }
+  .ogcard .art { width: 128px; height: 128px; margin: 0 auto 2px; position: relative; z-index: 1; }
+  .ogcard .greet { position: relative; z-index: 1; font-size: 40px; }
+  .ogcard .lines { position: relative; z-index: 1; margin: 18px auto 0; width: 80%; }
+  .ogcard .lines i { display: block; height: 7px; margin: 12px auto 0; border-radius: 4px; background: var(--line); }
+  .ogcard .lines i:nth-child(2) { width: 86%; } .ogcard .lines i:nth-child(3) { width: 60%; }
+  .og .stage { position: absolute; left: 26px; top: 318px; width: 470px; margin: 0; transform: rotate(-5deg); }
+  .og .stage::after, .og .env, .og .seal::before, .og .sheen::after { animation: none !important; }
+  .og .seal { width: 92px; height: 92px; margin: -46px 0 0 -46px; }
+  .text { position: absolute; z-index: 3; left: 640px; top: 0; bottom: 0; width: 500px; display: flex; flex-direction: column; justify-content: center; }
+  .text .over { margin: 0 0 22px; font-size: 19px; letter-spacing: .3em; }
+  .text .title { font-size: 104px; line-height: .98; text-wrap: balance; }
+  .text .title.both { font-size: 84px; }
+  .text .sub { margin: 26px 0 0; font: 500 30px/1.3 var(--sans); color: var(--on-bg-muted); }
+  .text .mark { display: flex; align-items: center; gap: 14px; margin-top: 44px; font: 650 30px/1 var(--sans); color: var(--on-bg); }
+  .text .mark img { width: 52px; height: 52px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0, 0, 0, .15); }
+</style>
+</head>
+<body data-og data-design="any">
+<div class="og">
+  <div class="room"></div>
+  <canvas id="parts" width="2400" height="1260"></canvas>
+  <div class="group">
+    <div class="ogcard"><div class="art" id="art"></div><p class="greet" id="greet"></p><div class="lines"><i></i><i></i><i></i></div></div>
+    <div class="stage"><div class="env">
+      <div class="env-back"></div>
+      <div class="pocket"><div class="pocket-svg" id="pocket"></div><div class="flap-shadow"><i></i></div></div>
+      <div class="env-flap" id="flap"></div>
+      <div class="sheen"></div>
+      <button class="seal" id="seal" type="button" tabindex="-1"></button>
+    </div></div>
+  </div>
+  <div class="text">
+    <p class="over" id="over"></p>
+    <h1 class="title" id="title"></h1>
+    <p class="sub" id="sub"></p>
+    <div class="mark"><img src="/teri-app/icon.png" alt=""><span>Teri</span></div>
+  </div>
+</div>
+<script src="/teri-app/g/gift.js"></script>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search), d = q.get('d') || 'any', l = q.get('l') || 'ru', G = window.TeriGift;
+    document.body.setAttribute('data-design', d);
+    var W = {
+      ru: { over: 'Открытка', title: '<span>Вам</span> <em>подарок</em>', sub: 'Откройте открытку',
+            greet: { birthday: 'С днём рождения!', newyear: 'С Новым годом!', march8: 'С 8 Марта!', thanks: 'Спасибо!', any: 'Это вам!' } },
+      kk: { over: 'Ашықхат', title: '<span>Сізге</span> <em>сыйлық</em>', sub: 'Ашықхатты ашыңыз',
+            greet: { birthday: 'Туған күніңізбен!', newyear: 'Жаңа жылыңызбен!', march8: '8 наурыз мерекесімен!', thanks: 'Рахмет!', any: 'Бұл — сізге!' } },
+      both: { over: 'Открытка · Ашықхат', title: '<span>Вам подарок</span> <em>Сізге сыйлық</em>', sub: 'Откройте открытку · Ашықхатты ашыңыз' }
+    }[l];
+    document.getElementById('over').textContent = W.over;
+    document.getElementById('title').innerHTML = W.title;
+    if (l === 'both') document.getElementById('title').classList.add('both');
+    document.getElementById('sub').textContent = W.sub;
+    document.getElementById('art').innerHTML = G.ART[d];
+    // the bilingual picture (older links) keeps the card without words
+    document.getElementById('greet').textContent = l === 'both' ? '' : W.greet[d];
+    document.getElementById('greet').hidden = l === 'both';
+    document.getElementById('pocket').innerHTML = G.pocketSvg();
+    document.getElementById('flap').innerHTML = G.flapSvg();
+    document.getElementById('seal').innerHTML = G.sealSvg();
+    // the occasion in the air, never over the words
+    var c = document.getElementById('parts'), ctx = c.getContext('2d'), k = G.KINDS[d], rnd = G.seeded(['birthday', 'newyear', 'march8', 'thanks', 'any'].indexOf(d) * 131 + 7);
+    ctx.scale(2, 2);
+    for (var i = 0, n = 0; i < 400 && n < 64; i++) {
+      var x = rnd() * 1200, y = rnd() * 630;
+      if (x > 600 && x < 1150 && y > 120 && y < 520) continue;       // the words
+      if (x > 90 && x < 560 && y > 40 && y < 600) continue;           // the card and the envelope
+      n++;
+      ctx.save(); ctx.globalAlpha = 0.55 + rnd() * 0.4; ctx.translate(x, y); ctx.rotate(rnd() * 6.28);
+      G.drawShape(ctx, k.shapes[n % k.shapes.length], 5 + rnd() * 6, k.colors[n % k.colors.length]); ctx.restore();
+    }
+    document.fonts.ready.then(function () { document.body.setAttribute('data-ready', '1'); });
+  })();
+</script>
+</body>
+</html>
