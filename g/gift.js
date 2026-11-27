@@ -811,10 +811,12 @@
     state = 'loading'; problem = null; render();
     if (demo) {
       var s = q.get('s');
-      begin({ status: s === 'redeemed' ? 'redeemed' : 'paid', amount: 20000, design: demo,
-        to_name: q.get('to') === '' ? '' : 'Айгерим', from_name: q.get('from') === '' ? '' : 'Бота', message: q.get('m') || null,
-        lang: lang, code: 'K7QM-4TZX-9HWP', phone_hint: null, confirm: true });
       token = 'demo';
+      fontsReady().then(function () {
+        begin({ status: s === 'redeemed' ? 'redeemed' : 'paid', amount: 20000, design: demo,
+          to_name: q.get('to') === '' ? '' : 'Айгерим', from_name: q.get('from') === '' ? '' : 'Бота', message: q.get('m') || null,
+          lang: lang, code: 'K7QM-4TZX-9HWP', phone_hint: null, confirm: true });
+      });
       return;
     }
     if (!/^[a-z0-9]{16,40}$/.test(token)) { problem = 'notFound'; state = 'problem'; render(); return; }
